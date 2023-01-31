@@ -1,0 +1,29 @@
+citHeader("To cite qfratio in publications use:")
+
+citEntry(
+    entry   = "Misc",
+    title   = "{avrevol}: {R} package for average evolvability measures",
+    author  = personList(as.person("Junya Watanabe")),
+    year    = "2023",
+    url     = "https://github.com/watanabe-j/avrevol",
+    textVersion =
+    paste("Watanabe, J. (2023). avrevol: R package for",
+          "average evolvability measures.",
+          "URL https://github.com/watanabe-j/avrevol.")
+)
+
+citEntry(
+    entry   = "Article",
+    title   = "Exact expressions and numerical evaluation of average evolvability measures for characterizing and comparing G matrices",
+    author  = personList(as.person("Junya Watanabe")),
+    journal = "bioRxiv",
+    year    = "2022",
+    pages   = "2022.11.02.514929",
+    doi     = "10.1101/2022.11.02.514929",
+    url     = "https://doi.org/10.1101/2022.11.02.514929",
+    textVersion =
+    paste("Watanabe, J. (2022). Exact expressions and numerical evaluation of",
+          "average evolvability measures for characterizing and comparing",
+          "G matrices. bioRxiv preprint, 2022.11.02.514929.",
+          "doi:10.1101/2022.11.02.514929.")
+)
