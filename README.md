@@ -15,22 +15,23 @@ quadratic forms in the package
 The package `qfratio` provides functions to evaluate moments of ratios
 of quadratic forms in normal variables using recursive algorithms. That
 package was originally developed for evaluating average evolvability
-measures (Watanabe, 2022), but is capable of evaluating moments in
-rather general conditions beyond those. The idea of this package is to
-provide a simple, convenient interface specifically aiming at average
-evolvability measures, by passing appropriately specified arguments to
-functions from the `qfratio` package. All average evolvability measures
-treated by Watanabe (2022) are implemented, accommodating arbitrary mean
-and covariance for the selection gradients.
+measures ([Watanabe, 2022](#ref-Watanabe2022cevo)), but is capable of
+evaluating moments in rather general conditions beyond those. The idea
+of this package is to provide a simple, convenient interface
+specifically aiming at average evolvability measures, by passing
+appropriately specified arguments to functions from the `qfratio`
+package. All average evolvability measures treated by Watanabe
+([2022](#ref-Watanabe2022cevo)) are implemented, accommodating arbitrary
+mean and covariance for the selection gradients.
 
 As a supplement, this package also has functions to obtain Monte Carlo
 samples for evolvability measures (including the random skewers
 correlation), as well as the delta method approximations for average
-evolvability measures by Hansen & Houle (2008). Existing packages like
-`evolvability` and `evolqg` have these functionalities, but this
-package’s implementation is more general (Monte Carlo versions
-accommodate arbitrary mean and covariance) and faster, as of developing
-this.
+evolvability measures by Hansen & Houle ([2008](#ref-HansenHoule2008)).
+Existing packages like `evolvability` and `evolqg` have these
+functionalities, but this package’s implementation is more general
+(Monte Carlo versions accommodate arbitrary mean and covariance) and
+faster, as of developing this.
 
 ## Installation
 
@@ -83,10 +84,10 @@ hh_cevo(G1)
 ## plus its 95% CI
 mcsample_cevo <- mc_cevo(nit, G1)
 mean(mcsample_cevo)
-#> [1] 2.133323
+#> [1] 2.104252
 mean(mcsample_cevo) + sd(mcsample_cevo) / sqrt(nit) *
     qt(c(0.025, 0.975), nit - 1)
-#> [1] 2.093725 2.172922
+#> [1] 2.064085 2.144419
 
 ## Average response difference using series expression,
 ## Hansen-Houle delta method approximation, and
@@ -107,7 +108,7 @@ plot(res_rdif)
 hh_rdif(G1, G2)
 #> [1] 1.682945
 mean(mc_rdif(nit, G1, G2))
-#> [1] 1.686863
+#> [1] 1.673985
 
 ## Average response correlation using series expression and
 ## its Monte Carlo estimate, aka "random skewers" correlation
@@ -124,7 +125,7 @@ plot(res_rcor)
 
 ``` r
 mean(mc_rcor(nit, G1, G2))
-#> [1] 0.8463566
+#> [1] 0.8479261
 
 ## Advanced: Average evolvability under
 ## non-spherical distribution of selection gradient
@@ -146,22 +147,39 @@ plot(res_evol_nsph)
 
 ``` r
 mean(mc_evol(nit, G1, mu = mu, Sigma = Sigma))
-#> [1] 2.691995
+#> [1] 2.715177
 ```
 
 ## References
 
-Hansen, T. F. & Houle, D. (2008) Measuring and comparing evolvability
-and constraint in multivariate characters. *Journal of Evolutionary
-Biology*, **21**, 1201–1219. doi:
-[10.1111/j.1420-9101.2008.01573.x](https://doi.org/10.1111/j.1420-9101.2008.01573.x).
+<div id="refs" class="references csl-bib-body hanging-indent"
+line-spacing="2">
 
-Marroig, G., Shirai, L. T., Porto A., de Oliveira, F. B., & De Conto, V.
-(2009) The evolution of modularity in the mammalian skull II:
-evolutionary consequences. *Evolutionary Biology*, **36**, 136–148. doi:
-[10.1007/s11692-009-9051-1](https://doi.org/10.1007/s11692-009-9051-1).
+<div id="ref-HansenHoule2008" class="csl-entry">
+
+Hansen, T. F., & Houle, D. (2008). Measuring and comparing evolvability
+and constraint in multivariate characters. *Journal of Evolutionary
+Biology*, *21*, 1201–1219.
+<https://doi.org/10.1111/j.1420-9101.2008.01573.x>
+
+</div>
+
+<div id="ref-MarroigEtAl2009" class="csl-entry">
+
+Marroig, G., Shirai, L. T., Porto, A., Oliveira, F. B. de, & De Conto,
+V. (2009). The evolution of modularity in the mammalian skull II:
+Evolutionary consequences. *Evolutionary Biology*, *36*, 136–148.
+<https://doi.org/10.1007/s11692-009-9051-1>
+
+</div>
+
+<div id="ref-Watanabe2022cevo" class="csl-entry">
 
 Watanabe, J. (2022). Exact expressions and numerical evaluation of
 average evolvability measures for characterizing and comparing **G**
-matrices. *bioRxiv* preprint, 2022.11.02.514929. doi:
-[10.1101/2022.11.02.514929](https://doi.org/10.1101/2022.11.02.514929).
+matrices. *bioRxiv*, 2022.11.02.514929.
+<https://doi.org/10.1101/2022.11.02.514929>
+
+</div>
+
+</div>
