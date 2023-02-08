@@ -107,7 +107,7 @@ mean(mc_rdif(nit, G1, G2))
 
 ## Average response correlation using series expression and
 ## its Monte Carlo estimate, aka "random skewers" correlation
-(res_rcor <- avr_rcor(G1, G2))
+(res_rcor <- avr_rcor(G1, G2, m = 500))
 plot(res_rcor)
 mean(mc_rcor(nit, G1, G2))
 

@@ -4,6 +4,7 @@
 # avrevol: R Package for Average Evolvability Measures
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 This small package provides wrapper functions to evaluate average
@@ -15,7 +16,7 @@ quadratic forms in the package
 The package `qfratio` provides functions to evaluate moments of ratios
 of quadratic forms in normal variables using recursive algorithms. That
 package was originally developed for evaluating average evolvability
-measures ([Watanabe, 2022](#ref-Watanabe2022cevo)), but is capable of
+measures (Watanabe, [2022](#ref-Watanabe2022cevo)), but is capable of
 evaluating moments in rather general conditions beyond those. The idea
 of this package is to provide a simple, convenient interface
 specifically aiming at average evolvability measures, by passing
@@ -65,7 +66,7 @@ nit <- 1000
 #> 
 #>  Moment of ratio of quadratic forms
 #> 
-#> Moment = 2.11678, Error = 2.775558e-15 (one-sided)
+#> Moment = 2.11678, Error = 2.768619e-15 (one-sided)
 #> Possible range:
 #>  2.11677962 2.11677962
 plot(res_cevo)
@@ -74,6 +75,7 @@ plot(res_cevo)
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
+
 ## Hansen & Houle's (2008) delta method approximation of the same
 hh_cevo(G1)
 #> [1] 2.11968
@@ -112,11 +114,11 @@ mean(mc_rdif(nit, G1, G2))
 
 ## Average response correlation using series expression and
 ## its Monte Carlo estimate, aka "random skewers" correlation
-(res_rcor <- avr_rcor(G1, G2))
+(res_rcor <- avr_rcor(G1, G2, m = 500))
 #> 
 #>  Moment of ratio of quadratic forms
 #> 
-#> Moment = 0.8462192
+#> Moment = 0.8462197
 #> Error bound unavailable; recommended to inspect plot() of this object
 plot(res_rcor)
 ```
@@ -152,10 +154,9 @@ mean(mc_evol(nit, G1, mu = mu, Sigma = Sigma))
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent"
-line-spacing="2">
+<div id="refs" class="references">
 
-<div id="ref-HansenHoule2008" class="csl-entry">
+<div id="ref-HansenHoule2008">
 
 Hansen, T. F., & Houle, D. (2008). Measuring and comparing evolvability
 and constraint in multivariate characters. *Journal of Evolutionary
@@ -164,7 +165,7 @@ Biology*, *21*, 1201–1219.
 
 </div>
 
-<div id="ref-MarroigEtAl2009" class="csl-entry">
+<div id="ref-MarroigEtAl2009">
 
 Marroig, G., Shirai, L. T., Porto, A., Oliveira, F. B. de, & De Conto,
 V. (2009). The evolution of modularity in the mammalian skull II:
@@ -173,7 +174,7 @@ Evolutionary consequences. *Evolutionary Biology*, *36*, 136–148.
 
 </div>
 
-<div id="ref-Watanabe2022cevo" class="csl-entry">
+<div id="ref-Watanabe2022cevo">
 
 Watanabe, J. (2022). Exact expressions and numerical evaluation of
 average evolvability measures for characterizing and comparing **G**
