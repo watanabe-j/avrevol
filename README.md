@@ -29,10 +29,12 @@ As a supplement, this package also has functions to obtain Monte Carlo
 samples for evolvability measures (including the random skewers
 correlation), as well as the delta method approximations for average
 evolvability measures by Hansen & Houle ([2008](#ref-HansenHoule2008)).
-Existing packages like `evolvability` and `evolqg` have these
+Existing packages like `evolvability`
+([CRAN](https://cran.r-project.org/package=evolvability)) and `evolqg`
+([GitHub](https://github.com/lem-usp/EvolQG)) have these
 functionalities, but this package’s implementation is more general
 (Monte Carlo versions accommodate arbitrary mean and covariance) and
-faster, as of developing this.
+faster, at least as of writing this.
 
 ## Installation
 
@@ -49,7 +51,7 @@ This package has the following dependencies:
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Here are hypothetical examples for typical use cases:
 
 ``` r
 library(avrevol)
@@ -156,6 +158,16 @@ mean(mc_evol(nit, G1, mu = mu, Sigma = Sigma))
 
 <div id="refs" class="references">
 
+<div id="ref-BolstadEtAl2014">
+
+Bolstad, G. H., Hansen, T. F., Pélabon, C., Falahati-Anbaran, M.,
+Pérez-Baralles, R., & Armbruster, W. S. (2014). Genetic constraints
+predict evolutionary divergence in *Dalechampia* blossoms.
+*Philosophical Transactions of the Royal Society B: Biological
+Sciences*, *369*, 20130255. <https://doi.org/10.1098/rstb.2013.0255>
+
+</div>
+
 <div id="ref-HansenHoule2008">
 
 Hansen, T. F., & Houle, D. (2008). Measuring and comparing evolvability
@@ -171,6 +183,15 @@ Marroig, G., Shirai, L. T., Porto, A., Oliveira, F. B. de, & De Conto,
 V. (2009). The evolution of modularity in the mammalian skull II:
 Evolutionary consequences. *Evolutionary Biology*, *36*, 136–148.
 <https://doi.org/10.1007/s11692-009-9051-1>
+
+</div>
+
+<div id="ref-MeloEtAl2016">
+
+Melo, D., Garcia, G., Hubbe, A., Assis, A. P., & Marroig, G. (2016).
+EvolQG—an R package for evolutionary quantitative genetics \[version 3;
+referees: 2 approved, 1 approved with reservations\]. *F1000Research*,
+*4*, 925. <https://doi.org/10.12688/f1000research.7082.3>
 
 </div>
 

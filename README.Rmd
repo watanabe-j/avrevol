@@ -4,6 +4,8 @@ bibliography: man/bibliography.bib
 link-citations: TRUE
 nocite: |
   @MarroigEtAl2009
+  @BolstadEtAl2014
+  @MeloEtAl2016
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
 ---
 
@@ -48,9 +50,12 @@ As a supplement, this package also has functions to obtain Monte Carlo
 samples for evolvability measures (including the random skewers correlation),
 as well as the delta method approximations for average evolvability measures
 by @HansenHoule2008.
-Existing packages like `evolvability` and `evolqg` have these functionalities,
-but this package's implementation is more general (Monte Carlo versions
-accommodate arbitrary mean and covariance) and faster, as of developing this.
+Existing packages like `evolvability`
+([CRAN](https://cran.r-project.org/package=evolvability))
+and `evolqg` ([GitHub](https://github.com/lem-usp/EvolQG)) have these
+functionalities, but this package's implementation is more general (Monte Carlo
+versions accommodate arbitrary mean and covariance) and faster, at least as of
+writing this.
 
 
 ## Installation
@@ -69,7 +74,7 @@ This package has the following dependencies:
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Here are hypothetical examples for typical use cases:
 
 ```{r example}
 library(avrevol)
