@@ -41,6 +41,12 @@
 #'   Default \code{"coef_wise"} is typically the most robust and
 #'   modestly fast option. See documentation of
 #'   \code{qfratio::\link[qfratio]{qfrm}()} for details.
+#' @param check_convergence
+#'   Option to specify how numerical convergence is checked.
+#'   Default for \code{avr_auto()} and \code{avr_rcor()} is a strict one
+#'   (\code{"strict_relative"}) because no error bound is available for these
+#'   measures. Other options are: \code{"relative"}, which is far less strict,
+#'   and \code{"none"} (or \code{FALSE}) for no checking.
 #' @param tol_qr
 #'   Tolerance passed to \code{qr()} to determine singularity of \code{G}
 #' @param ...
@@ -99,7 +105,9 @@
 #'
 #' ## Average response correlation using series expression
 #' ## whose Monte Carlo estimate is known as "random skewers" correlation
-#' (res_rcor <- avr_rcor(G1, G2))
+#' (res_rcor <- avr_rcor(G1, G2, m = 100)) # throws warning for non-convergence
+#'
+#' (res_rcor <- avr_rcor(G1, G2, m = 500)) # good with larger m
 #' plot(res_rcor)
 #'
 #' ## Larger problem
@@ -215,6 +223,7 @@ avr_flex <- function(G, m = 100, ...) {
 avr_auto <- function(G, m = 100, mu = rep.int(0, dim(G)[1]),
                      Sigma = diag(dim(G)[1]),
                      cpp_method = c("coef_wise", "double", "long_double"),
+                     check_convergence = "strict_relative",
                      tol_qr = 1e-7, ...) {
     cpp_method <- match.arg(cpp_method)
     stopifnot("G should be symmetric" = isSymmetric(G))
@@ -237,7 +246,8 @@ avr_auto <- function(G, m = 100, mu = rep.int(0, dim(G)[1]),
         Gi <- chol2inv(chol(G))
         return(qfratio::qfmrm(B = G, D = Gi, p = 2, q = 1, r = 1, m = m,
                               mu = mu, Sigma = Sigma,
-                              cpp_method = cpp_method, ...))
+                              cpp_method = cpp_method,
+                              check_convergence = check_convergence, ...))
     }
 }
 
@@ -281,6 +291,7 @@ avr_rdif <- function(G1, G2, m = 100, ...) {
 #' @export
 avr_rcor <- function(G1, G2, m = 100,
                      cpp_method = c("coef_wise", "double", "long_double"),
+                     check_convergence = "strict_relative",
                      ...) {
     cpp_method <- match.arg(cpp_method)
     stopifnot(
@@ -291,5 +302,6 @@ avr_rcor <- function(G1, G2, m = 100,
     G1sq <- crossprod(G1)
     G2sq <- crossprod(G2)
     qfratio::qfmrm(G12, G1sq, G2sq, p = 1, q = 1/2, r = 1/2, m = m,
-                   cpp_method = cpp_method, ...)
+                   cpp_method = cpp_method,
+                   check_convergence = check_convergence, ...)
 }

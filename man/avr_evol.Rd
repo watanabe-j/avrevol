@@ -32,6 +32,7 @@ avr_auto(
   mu = rep.int(0, dim(G)[1]),
   Sigma = diag(dim(G)[1]),
   cpp_method = c("coef_wise", "double", "long_double"),
+  check_convergence = "strict_relative",
   tol_qr = 1e-07,
   ...
 )
@@ -45,6 +46,7 @@ avr_rcor(
   G2,
   m = 100,
   cpp_method = c("coef_wise", "double", "long_double"),
+  check_convergence = "strict_relative",
   ...
 )
 }
@@ -71,6 +73,12 @@ overflow/underflow in \code{qfratio::qfmrm()}.
 Default \code{"coef_wise"} is typically the most robust and
 modestly fast option. See documentation of
 \code{qfratio::\link[qfratio]{qfrm}()} for details.}
+
+\item{check_convergence}{Option to specify how numerical convergence is checked.
+Default for \code{avr_auto()} and \code{avr_rcor()} is a strict one
+(\code{"strict_relative"}) because no error bound is available for these
+measures. Other options are: \code{"relative"}, which is far less strict,
+and \code{"none"} (or \code{FALSE}) for no checking.}
 
 \item{G1, G2}{Target covariance matrices to be compared.  Assumed validly structured
 and of the same dimension.}
@@ -138,7 +146,9 @@ plot(res_rdif)
 
 ## Average response correlation using series expression
 ## whose Monte Carlo estimate is known as "random skewers" correlation
-(res_rcor <- avr_rcor(G1, G2))
+(res_rcor <- avr_rcor(G1, G2, m = 100)) # throws warning for non-convergence
+
+(res_rcor <- avr_rcor(G1, G2, m = 500)) # good with larger m
 plot(res_rcor)
 
 ## Larger problem
