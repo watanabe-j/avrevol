@@ -44,22 +44,19 @@ mc_rcor(nit, G1, G2, ...)
 \arguments{
 \item{nit}{Number of iteration}
 
-\item{G}{Target covariance matrix.  Assumed validly structured
+\item{G, G1, G2}{Target covariance matrix/matrices.  Assumed validly structured
 (symmetric, nonnegative definite), although symmetry is checked.}
 
 \item{...}{Additional arguments are passed to \code{qfratio::rqfr()} or
 \code{qfratio::rqfmr()}.  The only useful arguments will be \code{mu} and
 \code{Sigma} for the mean vector and covariance matrix, respectively,
-of selection gradients. See documentations of those functions for details.}
+of selection gradients.}
 
 \item{mu, Sigma}{Mean vector and covariance matrix, respectively, of selection gradients;
 default zero vector and identity matrix.
-Passed to \code{qfratio::qfrm()} or \code{qfratio::qfmrm()}.}
+Passed to \code{qfratio::rqfr()} or \code{qfratio::rqfmr()}.}
 
 \item{tol_qr}{Tolerance passed to \code{qr()} to determine singularity of \code{G}}
-
-\item{G1, G2}{Target covariance matrices to be compared.  Assumed validly structured
-and of the same dimension.}
 }
 \value{
 Numeric vector of length \code{nit}

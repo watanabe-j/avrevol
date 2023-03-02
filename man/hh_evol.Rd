@@ -20,11 +20,8 @@ hh_inte(G)
 hh_rdif(G1, G2)
 }
 \arguments{
-\item{G}{Target covariance matrix.  Assumed validly structured
+\item{G, G1, G2}{Target covariance matrix/matrices.  Assumed validly structured
 (symmetric, nonnegative definite), although symmetry is checked.}
-
-\item{G1, G2}{Target covariance matrices to be compared.  Assumed validly structured
-and of the same dimension.}
 }
 \description{
 These functions calculate Hansen & Houle's (2008, 2009)

@@ -83,7 +83,7 @@ mean(mc_evol(nit, G1, mu = mu, Sigma = Sigma))
 }
 \references{
 Cheverud, J. M. (1996) Quantitative genetic analysis of cranial morphology
-in the cotton-top (\emph{Saguinus oedipus}) and saddle-back(\emph{S. fuscicollis})
+in the cotton-top (\emph{Saguinus oedipus}) and saddle-back (\emph{S. fuscicollis})
 tamarines. \emph{Journal of Evolutionary Biology}, \strong{9}, 5--42.
 doi:\href{https://doi.org/10.1046/j.1420-9101.1996.9010005.x}{10.1046/j.1420-9101.1996.9010005.x}.
 

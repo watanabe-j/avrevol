@@ -20,11 +20,15 @@
 #'
 #' @param nit
 #'   Number of iteration
+#' @param mu,Sigma
+#'   Mean vector and covariance matrix, respectively, of selection gradients;
+#'   default zero vector and identity matrix.
+#'   Passed to \code{qfratio::rqfr()} or \code{qfratio::rqfmr()}.
 #' @param ...
 #'   Additional arguments are passed to \code{qfratio::rqfr()} or
 #'   \code{qfratio::rqfmr()}.  The only useful arguments will be \code{mu} and
 #'   \code{Sigma} for the mean vector and covariance matrix, respectively,
-#'   of selection gradients. See documentations of those functions for details.
+#'   of selection gradients.
 #'
 #' @return
 #' Numeric vector of length \code{nit}

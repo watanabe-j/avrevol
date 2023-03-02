@@ -15,21 +15,19 @@
 #' \eqn{\bm{\beta}} is within the range of \eqn{\mathbf{G}}.
 #' In \code{avr_cevo()} and \code{avr_auto()},
 #' this condition is assessed by the QR decomposition of \eqn{\mathbf{G}}
-#' (with pivoting).  When \eqn{\mathbf{G}} is not full-rank, \eqn{\bm{\mu}} and
-#' \eqn{\bm{\Sigma}} are projected onto the range of \eqn{\mathbf{G}} using
+#' (with pivoting).  When \eqn{\mathbf{G}} is not of full-rank, \eqn{\bm{\mu}}
+#' and \eqn{\bm{\Sigma}} are projected onto the range of \eqn{\mathbf{G}} using
 #' the Q part of the QR decomposition.  If these are equal to the original ones,
 #' then the arguments are passed to evaluation of the moment using quadratic
 #' forms; otherwise, these functions return 0 (formatted as an \code{qfrm}
 #' object).
 #'
-#' @param G
-#'   Target covariance matrix.  Assumed validly structured
+#' @param G,G1,G2
+#'   Target covariance matrix/matrices.  Assumed validly structured
 #'   (symmetric, nonnegative definite), although symmetry is checked.
-#' @param G1,G2
-#'   Target covariance matrices to be compared.  Assumed validly structured
-#'   and of the same dimension.
 #' @param m
-#'   Order of evaluation \eqn{M} at which partial sum is truncated.
+#'   Order of evaluation \eqn{m} at which partial sum is truncated
+#'   (\eqn{M} in, e.g., Hillier et al., 2014)
 #'   Adjust this value depending on desired accuracy.
 #' @param mu,Sigma
 #'   Mean vector and covariance matrix, respectively, of selection gradients;
@@ -53,16 +51,16 @@
 #'   Additional arguments are passed to \code{qfratio::qfrm()} or
 #'   \code{qfratio::qfmrm()}.  Notable arguments involve \code{mu} and
 #'   \code{Sigma} for the mean vector and covariance matrix, respectively,
-#'   of selection gradients.  See documentations of those functions for details.
+#'   of selection gradients.
 #'
 #' @return
 #' \code{qfrm} object defined by the package \code{qfratio}, which is a list
-#' including \code{$statistic} (the partial sum) and \code{error_bound}.
+#' including \code{$statistic} (the partial sum) and \code{$error_bound}.
 #' That package also defines \code{print} and \code{plot} methods.
 #'
 #' @references
 #' Cheverud, J. M. (1996) Quantitative genetic analysis of cranial morphology
-#'   in the cotton-top (*Saguinus oedipus*) and saddle-back(*S. fuscicollis*)
+#'   in the cotton-top (*Saguinus oedipus*) and saddle-back (*S. fuscicollis*)
 #'   tamarines. *Journal of Evolutionary Biology*, **9**, 5--42.
 #'   doi:[10.1046/j.1420-9101.1996.9010005.x](https://doi.org/10.1046/j.1420-9101.1996.9010005.x).
 #'

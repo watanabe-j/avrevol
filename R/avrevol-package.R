@@ -27,7 +27,7 @@
 #'
 #' @references
 #' Cheverud, J. M. (1996) Quantitative genetic analysis of cranial morphology
-#'   in the cotton-top (*Saguinus oedipus*) and saddle-back(*S. fuscicollis*)
+#'   in the cotton-top (*Saguinus oedipus*) and saddle-back (*S. fuscicollis*)
 #'   tamarines. *Journal of Evolutionary Biology*, **9**, 5--42.
 #'   doi:[10.1046/j.1420-9101.1996.9010005.x](https://doi.org/10.1046/j.1420-9101.1996.9010005.x).
 #'

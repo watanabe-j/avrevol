@@ -51,16 +51,17 @@ avr_rcor(
 )
 }
 \arguments{
-\item{G}{Target covariance matrix.  Assumed validly structured
+\item{G, G1, G2}{Target covariance matrix/matrices.  Assumed validly structured
 (symmetric, nonnegative definite), although symmetry is checked.}
 
-\item{m}{Order of evaluation \eqn{M} at which partial sum is truncated.
+\item{m}{Order of evaluation \eqn{m} at which partial sum is truncated
+(\eqn{M} in, e.g., Hillier et al., 2014)
 Adjust this value depending on desired accuracy.}
 
 \item{...}{Additional arguments are passed to \code{qfratio::qfrm()} or
 \code{qfratio::qfmrm()}.  Notable arguments involve \code{mu} and
 \code{Sigma} for the mean vector and covariance matrix, respectively,
-of selection gradients.  See documentations of those functions for details.}
+of selection gradients.}
 
 \item{mu, Sigma}{Mean vector and covariance matrix, respectively, of selection gradients;
 default zero vector and identity matrix.
@@ -79,13 +80,10 @@ Default for \code{avr_auto()} and \code{avr_rcor()} is a strict one
 (\code{"strict_relative"}) because no error bound is available for these
 measures. Other options are: \code{"relative"}, which is far less strict,
 and \code{"none"} (or \code{FALSE}) for no checking.}
-
-\item{G1, G2}{Target covariance matrices to be compared.  Assumed validly structured
-and of the same dimension.}
 }
 \value{
 \code{qfrm} object defined by the package \code{qfratio}, which is a list
-including \code{$statistic} (the partial sum) and \code{error_bound}.
+including \code{$statistic} (the partial sum) and \code{$error_bound}.
 That package also defines \code{print} and \code{plot} methods.
 }
 \description{
@@ -120,8 +118,8 @@ and average autonomy can be nonzero only when the distribution of
 \eqn{\bm{\beta}} is within the range of \eqn{\mathbf{G}}.
 In \code{avr_cevo()} and \code{avr_auto()},
 this condition is assessed by the QR decomposition of \eqn{\mathbf{G}}
-(with pivoting).  When \eqn{\mathbf{G}} is not full-rank, \eqn{\bm{\mu}} and
-\eqn{\bm{\Sigma}} are projected onto the range of \eqn{\mathbf{G}} using
+(with pivoting).  When \eqn{\mathbf{G}} is not of full-rank, \eqn{\bm{\mu}}
+and \eqn{\bm{\Sigma}} are projected onto the range of \eqn{\mathbf{G}} using
 the Q part of the QR decomposition.  If these are equal to the original ones,
 then the arguments are passed to evaluation of the moment using quadratic
 forms; otherwise, these functions return 0 (formatted as an \code{qfrm}
@@ -185,7 +183,7 @@ avr_inte(Gsing, Sigma = Sigmasing)
 }
 \references{
 Cheverud, J. M. (1996) Quantitative genetic analysis of cranial morphology
-in the cotton-top (\emph{Saguinus oedipus}) and saddle-back(\emph{S. fuscicollis})
+in the cotton-top (\emph{Saguinus oedipus}) and saddle-back (\emph{S. fuscicollis})
 tamarines. \emph{Journal of Evolutionary Biology}, \strong{9}, 5--42.
 doi:\href{https://doi.org/10.1046/j.1420-9101.1996.9010005.x}{10.1046/j.1420-9101.1996.9010005.x}.
 
