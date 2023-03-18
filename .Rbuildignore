@@ -6,3 +6,4 @@
 ^README\.Rmd$
 ^README\.html$
 ^man/bibliography\.bib.*$
+^man/minimal_style\.csl$

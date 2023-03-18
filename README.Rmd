@@ -6,7 +6,7 @@ nocite: |
   @MarroigEtAl2009
   @BolstadEtAl2014
   @MeloEtAl2016
-csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+csl: man/minimal_style.csl
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -32,7 +32,9 @@ set.seed(601)
 This small package provides wrapper functions to evaluate average evolvability
 measures in evolutionary quantitative genetics, based on the
 implementation of recursion-based evaluation of moments of ratios of
-quadratic forms in the package [`qfratio`](https://github.com/watanabe-j/qfratio).
+quadratic forms in the package `qfratio`
+([CRAN](https://CRAN.R-project.org/package=qfratio){target="_blank"};
+[GitHub](https://github.com/watanabe-j/qfratio){target="_blank"}).
 
 The package `qfratio` provides functions to evaluate moments of
 ratios of quadratic forms in normal variables using recursive algorithms.
@@ -62,8 +64,7 @@ writing this.
 
 ```{r eval = FALSE}
 ## These dependencies are required if you haven't installed them
-# install.packages("devtools")
-# devtools::install_github("watanabe-j/qfratio")
+# install.packages(c("devtools", "qfratio"))
 devtools::install_github("watanabe-j/avrevol")
 ```
 
