@@ -37,17 +37,17 @@
 #' Cheverud, J. M. (1996) Quantitative genetic analysis of cranial morphology
 #'   in the cotton-top (*Saguinus oedipus*) and saddle-back(*S. fuscicollis*)
 #'   tamarines. *Journal of Evolutionary Biology*, **9**, 5--42.
-#'   doi:[10.1046/j.1420-9101.1996.9010005.x](https://doi.org/10.1046/j.1420-9101.1996.9010005.x).
+#'   \doi{10.1046/j.1420-9101.1996.9010005.x}.
 #'
 #' Cheverud, J. M. & Marroig, G. (2007) Comparing covariance matrices: random
 #'   skewers method compared to the common principal components model.
 #'   *Genetics and Molecular Biology*, **30**, 461--469.
-#'   doi:[10.1590/S1415-47572007000300027](https://doi.org/10.1590/S1415-47572007000300027).
+#'   \doi{10.1590/S1415-47572007000300027}.
 #'
 #' Watanabe, J. (2022). Exact expressions and numerical evaluation of average
 #'   evolvability measures for characterizing and comparing **G** matrices.
 #'   *bioRxiv* preprint, 2022.11.02.514929.
-#'   doi:[10.1101/2022.11.02.514929](https://doi.org/10.1101/2022.11.02.514929).
+#'   \doi{10.1101/2022.11.02.514929}.
 #'
 #' @seealso
 #' \code{\link[qfratio]{rqfr}}

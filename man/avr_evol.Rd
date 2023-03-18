@@ -185,22 +185,22 @@ avr_inte(Gsing, Sigma = Sigmasing)
 Cheverud, J. M. (1996) Quantitative genetic analysis of cranial morphology
 in the cotton-top (\emph{Saguinus oedipus}) and saddle-back (\emph{S. fuscicollis})
 tamarines. \emph{Journal of Evolutionary Biology}, \strong{9}, 5--42.
-doi:\href{https://doi.org/10.1046/j.1420-9101.1996.9010005.x}{10.1046/j.1420-9101.1996.9010005.x}.
+\doi{10.1046/j.1420-9101.1996.9010005.x}.
 
 Hansen, T. F. & Houle, D. (2008) Measuring and comparing evolvability and
 constraint in multivariate characters. \emph{Journal of Evolutionary Biology},
 \strong{21}, 1201--1219.
-doi:\href{https://doi.org/10.1111/j.1420-9101.2008.01573.x}{10.1111/j.1420-9101.2008.01573.x}.
+\doi{10.1111/j.1420-9101.2008.01573.x}.
 
 Marroig, G., Shirai, L. T., Porto A., de Oliveira, F. B., & De Conto, V.
 (2009) The evolution of modularity in the mammalian skull II:
 evolutionary consequences. \emph{Evolutionary Biology}, \strong{36}, 136--148.
-doi:\href{https://doi.org/10.1007/s11692-009-9051-1}{10.1007/s11692-009-9051-1}.
+\doi{10.1007/s11692-009-9051-1}.
 
 Watanabe, J. (2022). Exact expressions and numerical evaluation of average
 evolvability measures for characterizing and comparing \strong{G} matrices.
 \emph{bioRxiv} preprint, 2022.11.02.514929.
-doi:\href{https://doi.org/10.1101/2022.11.02.514929}{10.1101/2022.11.02.514929}.
+\doi{10.1101/2022.11.02.514929}.
 }
 \seealso{
 \code{\link[qfratio]{qfrm}} and \code{\link[qfratio]{qfmrm}}

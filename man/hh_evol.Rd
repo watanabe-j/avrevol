@@ -80,11 +80,11 @@ hh_rdif(G1, G2)
 Hansen, T. F. & Houle, D. (2008) Measuring and comparing evolvability and
 constraint in multivariate characters. \emph{Journal of Evolutionary Biology},
 \strong{21}, 1201--1219.
-doi:\href{https://doi.org/10.1111/j.1420-9101.2008.01573.x}{10.1111/j.1420-9101.2008.01573.x}.
+\doi{10.1111/j.1420-9101.2008.01573.x}.
 
 Hansen, T. F. & Houle, D. (2009) Corrigendum [of ``Measuring and comparing
 evolvability and constraint in multivariate characters''].
 \emph{Journal of Evolutionary Biology},
 \strong{22}, 913--915.
-doi:\href{https://doi.org/10.1111/j.1420-9101.2009.01715.x}{10.1111/j.1420-9101.2009.01715.x}.
+\doi{10.1111/j.1420-9101.2009.01715.x}.
 }

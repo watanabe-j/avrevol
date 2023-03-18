@@ -29,27 +29,27 @@
 #' Cheverud, J. M. (1996) Quantitative genetic analysis of cranial morphology
 #'   in the cotton-top (*Saguinus oedipus*) and saddle-back (*S. fuscicollis*)
 #'   tamarines. *Journal of Evolutionary Biology*, **9**, 5--42.
-#'   doi:[10.1046/j.1420-9101.1996.9010005.x](https://doi.org/10.1046/j.1420-9101.1996.9010005.x).
+#'   \doi{10.1046/j.1420-9101.1996.9010005.x}.
 #'
 #' Cheverud, J. M. & Marroig, G. (2007) Comparing covariance matrices: random
 #'   skewers method compared to the common principal components model.
 #'   *Genetics and Molecular Biology*, **30**, 461--469.
-#'   doi:[10.1590/S1415-47572007000300027](https://doi.org/10.1590/S1415-47572007000300027).
+#'   \doi{10.1590/S1415-47572007000300027}.
 #'
 #' Hansen, T. F. & Houle, D. (2008) Measuring and comparing evolvability and
 #'   constraint in multivariate characters. *Journal of Evolutionary Biology*,
 #'   **21**, 1201--1219.
-#'   doi:[10.1111/j.1420-9101.2008.01573.x](https://doi.org/10.1111/j.1420-9101.2008.01573.x).
+#'   \doi{10.1111/j.1420-9101.2008.01573.x}.
 #'
 #' Marroig, G., Shirai, L. T., Porto A., de Oliveira, F. B., & De Conto, V.
 #'   (2009) The evolution of modularity in the mammalian skull II:
 #'   evolutionary consequences. *Evolutionary Biology*, **36**, 136--148.
-#'   doi:[10.1007/s11692-009-9051-1](https://doi.org/10.1007/s11692-009-9051-1).
+#'   \doi{10.1007/s11692-009-9051-1}.
 #'
 #' Watanabe, J. (2022). Exact expressions and numerical evaluation of average
 #'   evolvability measures for characterizing and comparing **G** matrices.
 #'   *bioRxiv* preprint, 2022.11.02.514929.
-#'   doi:[10.1101/2022.11.02.514929](https://doi.org/10.1101/2022.11.02.514929).
+#'   \doi{10.1101/2022.11.02.514929}.
 #'
 #' @seealso
 #'   \code{\link{avr_evol}}: Average evolvability measures using
