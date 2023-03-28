@@ -6,7 +6,7 @@ nocite: |
   @MarroigEtAl2009
   @BolstadEtAl2014
   @MeloEtAl2016
-csl: man/minimal_style.csl
+csl: man/cran_style.csl
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -62,13 +62,13 @@ writing this.
 
 ## Installation
 
+### From GitHub
 ```{r eval = FALSE}
-## These dependencies are required if you haven't installed them
-# install.packages(c("devtools", "qfratio"))
+# install.packages("devtools")
 devtools::install_github("watanabe-j/avrevol")
 ```
 
-This package has the following dependencies:
+### Dependencies
 
     Imports: qfratio, MASS
 

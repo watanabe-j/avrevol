@@ -8,12 +8,12 @@
 #' All these functions are wrappers of either
 #' \code{qfratio::\link[qfratio]{rqfr}()} or
 #' \code{qfratio::\link[qfratio]{rqfmr}()} for random number generation of
-#' simple and multiple ratios of quadratic forms in normal variables.
-#' See documentations of those functions for technical details.
+#' simple and multiple ratios of quadratic forms in normal variables.  See
+#' documentations of those functions for technical details.
 #'
 #' When \code{G} is singular and the distribution of the selection gradients
 #' is not within its range, the conditional evolvability and autonomy are 0
-#' with probability 1 (see Watanabe, 2022). Accordingly, \code{mc_cevo()} and
+#' with probability 1 (see Watanabe, 2022).  Accordingly, \code{mc_cevo()} and
 #' \code{mc_auto()} simply yield a vector of 1's in this case.
 #'
 #' @inheritParams avr_evol
@@ -22,8 +22,8 @@
 #'   Number of iteration
 #' @param mu,Sigma
 #'   Mean vector and covariance matrix, respectively, of selection gradients;
-#'   default zero vector and identity matrix.
-#'   Passed to \code{qfratio::rqfr()} or \code{qfratio::rqfmr()}.
+#'   default zero vector and identity matrix.  Passed to
+#'   \code{qfratio::rqfr()} or \code{qfratio::rqfmr()}.
 #' @param ...
 #'   Additional arguments are passed to \code{qfratio::rqfr()} or
 #'   \code{qfratio::rqfmr()}.  The only useful arguments will be \code{mu} and
@@ -39,12 +39,12 @@
 #'   tamarines. *Journal of Evolutionary Biology*, **9**, 5--42.
 #'   \doi{10.1046/j.1420-9101.1996.9010005.x}.
 #'
-#' Cheverud, J. M. & Marroig, G. (2007) Comparing covariance matrices: random
+#' Cheverud, J. M. and Marroig, G. (2007) Comparing covariance matrices: random
 #'   skewers method compared to the common principal components model.
 #'   *Genetics and Molecular Biology*, **30**, 461--469.
 #'   \doi{10.1590/S1415-47572007000300027}.
 #'
-#' Watanabe, J. (2022). Exact expressions and numerical evaluation of average
+#' Watanabe, J. (2022) Exact expressions and numerical evaluation of average
 #'   evolvability measures for characterizing and comparing **G** matrices.
 #'   *bioRxiv* preprint, 2022.11.02.514929.
 #'   \doi{10.1101/2022.11.02.514929}.

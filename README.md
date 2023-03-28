@@ -30,8 +30,8 @@ mean and covariance for the selection gradients.
 As a supplement, this package also has functions to obtain Monte Carlo
 samples for evolvability measures (including the random skewers
 correlation), as well as the delta method approximations for average
-evolvability measures by Hansen & Houle ([2008](#ref-HansenHoule2008)).
-Existing packages like `evolvability`
+evolvability measures by Hansen and Houle
+([2008](#ref-HansenHoule2008)). Existing packages like `evolvability`
 ([CRAN](https://cran.r-project.org/package=evolvability)) and `evolqg`
 ([GitHub](https://github.com/lem-usp/EvolQG)) have these
 functionalities, but this package’s implementation is more general
@@ -40,13 +40,14 @@ faster, at least as of writing this.
 
 ## Installation
 
+### From GitHub
+
 ``` r
-## These dependencies are required if you haven't installed them
-# install.packages(c("devtools", "qfratio"))
+# install.packages("devtools")
 devtools::install_github("watanabe-j/avrevol")
 ```
 
-This package has the following dependencies:
+### Dependencies
 
     Imports: qfratio, MASS
 
@@ -163,47 +164,47 @@ line-spacing="2">
 <div id="ref-BolstadEtAl2014" class="csl-entry">
 
 Bolstad, G. H., Hansen, T. F., Pélabon, C., Falahati-Anbaran, M.,
-Pérez-Baralles, R., & Armbruster, W. S. (2014). Genetic constraints
+Pérez-Baralles, R. and Armbruster, W. S. (2014) Genetic constraints
 predict evolutionary divergence in *Dalechampia* blossoms.
 *Philosophical Transactions of the Royal Society B: Biological
-Sciences*, **369**: 20130255.
+Sciences*, **369**, 20130255.
 doi:[10.1098/rstb.2013.0255](https://doi.org/10.1098/rstb.2013.0255).
 
 </div>
 
 <div id="ref-HansenHoule2008" class="csl-entry">
 
-Hansen, T. F. & Houle, D. (2008). Measuring and comparing evolvability
+Hansen, T. F. and Houle, D. (2008) Measuring and comparing evolvability
 and constraint in multivariate characters. *Journal of Evolutionary
-Biology*, **21**: 1201–1219.
+Biology*, **21**, 1201–1219.
 doi:[10.1111/j.1420-9101.2008.01573.x](https://doi.org/10.1111/j.1420-9101.2008.01573.x).
 
 </div>
 
 <div id="ref-MarroigEtAl2009" class="csl-entry">
 
-Marroig, G., Shirai, L. T., Porto, A., Oliveira, F. B. de, & De Conto,
-V. (2009). The evolution of modularity in the mammalian skull II:
-Evolutionary consequences. *Evolutionary Biology*, **36**: 136–148.
+Marroig, G., Shirai, L. T., Porto, A., Oliveira, F. B. de and De Conto,
+V. (2009) The evolution of modularity in the mammalian skull II:
+Evolutionary consequences. *Evolutionary Biology*, **36**, 136–148.
 doi:[10.1007/s11692-009-9051-1](https://doi.org/10.1007/s11692-009-9051-1).
 
 </div>
 
 <div id="ref-MeloEtAl2016" class="csl-entry">
 
-Melo, D., Garcia, G., Hubbe, A., Assis, A. P., & Marroig, G. (2016).
+Melo, D., Garcia, G., Hubbe, A., Assis, A. P. and Marroig, G. (2016)
 EvolQG—an R package for evolutionary quantitative genetics \[version 3;
 referees: 2 approved, 1 approved with reservations\]. *F1000Research*,
-**4**: 925.
+**4**, 925.
 doi:[10.12688/f1000research.7082.3](https://doi.org/10.12688/f1000research.7082.3).
 
 </div>
 
 <div id="ref-Watanabe2022cevo" class="csl-entry">
 
-Watanabe, J. (2022). Exact expressions and numerical evaluation of
+Watanabe, J. (2022) Exact expressions and numerical evaluation of
 average evolvability measures for characterizing and comparing **G**
-matrices. *bioRxiv*: 2022.11.02.514929.
+matrices. *bioRxiv*, 2022.11.02.514929.
 doi:[10.1101/2022.11.02.514929](https://doi.org/10.1101/2022.11.02.514929).
 
 </div>

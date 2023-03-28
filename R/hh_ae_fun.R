@@ -1,34 +1,34 @@
 #### hh_evol (documentation) ####
 #' Delta method approximation of average evolvability measures
 #'
-#' These functions calculate Hansen & Houle's (2008, 2009)
+#' These functions calculate Hansen and Houle's (2008, 2009)
 #' delta method approximations for average evolvability measures.
 #'
-#' The notation \eqn{\mathrm{Var}} in Hansen & Houle's (2008, 2009) seems to
-#' represent average sum of squares from the average (divided by k, the number
-#' of variables) and not the ordinary unbiased estimator of variance for
-#' infinite populations (divided by k - 1).
-#' The package \code{evolvability} v 2.0.0 incorrectly uses the latter divisor.
+#' The notation \eqn{\mathrm{Var}}{Var} in Hansen and Houle's (2008, 2009)
+#' seems to represent average sum of squares from the average (divided by
+#' \eqn{k}, the number of variables) and not the ordinary unbiased estimator
+#' of variance for infinite populations (divided by \eqn{k - 1}).  The
+#' package \code{evolvability} v 2.0.0 incorrectly uses the latter divisor.
 #'
 #' \code{svd(..., nu = 0L, nv = 0L)$d} is used to extract eigenvalues because
 #' it is slightly faster than \code{eigen(..., symmetric = TRUE)$values}.
 #' Note that the squared singular values of \code{A} is equal to the eigenvalues
 #' of \code{crossprod(A)}.
 #'
-#' Evolvability measures not treated in Hansen & Houle (2008) (flexibility and
+#' Evolvability measures not treated in Hansen and Houle (2008) (flexibility and
 #' response correlation) have not been implemented (although this should be
-#' doable). All the expressions are for the spherical normal (or uniform on
+#' doable).  All the expressions are for the spherical normal (or uniform on
 #' hypersphyere) distribution of selection gradients.
 #'
 #' @inheritParams avr_evol
 #'
 #' @references
-#' Hansen, T. F. & Houle, D. (2008) Measuring and comparing evolvability and
+#' Hansen, T. F. and Houle, D. (2008) Measuring and comparing evolvability and
 #'   constraint in multivariate characters. *Journal of Evolutionary Biology*,
 #'   **21**, 1201--1219.
 #'   \doi{10.1111/j.1420-9101.2008.01573.x}.
 #'
-#' Hansen, T. F. & Houle, D. (2009) Corrigendum \[of ``Measuring and comparing
+#' Hansen, T. F. and Houle, D. (2009) Corrigendum \[of ``Measuring and comparing
 #'   evolvability and constraint in multivariate characters''\].
 #'   *Journal of Evolutionary Biology*,
 #'   **22**, 913--915.

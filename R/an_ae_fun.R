@@ -7,17 +7,17 @@
 #' All these functions are wrappers of either
 #' \code{qfratio::\link[qfratio]{qfrm}()} or
 #' \code{qfratio::\link[qfratio]{qfmrm}()} for moments of simple and multiple
-#' ratios of quadratic forms in normal variables.
-#' See documentations of those functions for technical details.
+#' ratios of quadratic forms in normal variables.  See documentations of
+#' those functions for technical details.
 #'
 #' When \eqn{\mathbf{G}} is singular, average conditional evolvability
 #' and average autonomy can be nonzero only when the distribution of
-#' \eqn{\bm{\beta}} is within the range of \eqn{\mathbf{G}}.
-#' In \code{avr_cevo()} and \code{avr_auto()},
-#' this condition is assessed by the QR decomposition of \eqn{\mathbf{G}}
-#' (with pivoting).  When \eqn{\mathbf{G}} is not of full-rank, \eqn{\bm{\mu}}
-#' and \eqn{\bm{\Sigma}} are projected onto the range of \eqn{\mathbf{G}} using
-#' the Q part of the QR decomposition.  If these are equal to the original ones,
+#' \eqn{\bm{\beta}} is within the range of \eqn{\mathbf{G}}.  In
+#' \code{avr_cevo()} and \code{avr_auto()}, this condition is assessed by
+#' the QR decomposition of \eqn{\mathbf{G}} (with pivoting).  When
+#' \eqn{\mathbf{G}} is not of full-rank, \eqn{\bm{\mu}} and \eqn{\bm{\Sigma}}
+#' are projected onto the range of \eqn{\mathbf{G}} using the Q part of
+#' the QR decomposition.  If these are equal to the original ones,
 #' then the arguments are passed to evaluation of the moment using quadratic
 #' forms; otherwise, these functions return 0 (formatted as an \code{qfrm}
 #' object).
@@ -27,23 +27,22 @@
 #'   (symmetric, nonnegative definite), although symmetry is checked.
 #' @param m
 #'   Order of evaluation \eqn{m} at which partial sum is truncated
-#'   (\eqn{M} in, e.g., Hillier et al., 2014)
-#'   Adjust this value depending on desired accuracy.
+#'   (\eqn{M} in, e.g., Hillier et al., 2014).  Adjust this value
+#'   depending on desired accuracy.
 #' @param mu,Sigma
 #'   Mean vector and covariance matrix, respectively, of selection gradients;
-#'   default zero vector and identity matrix.
-#'   Passed to \code{qfratio::qfrm()} or \code{qfratio::qfmrm()}.
+#'   default zero vector and identity matrix.  Passed to
+#'   \code{qfratio::qfrm()} or \code{qfratio::qfmrm()}.
 #' @param cpp_method
 #'   Option to specify \code{C++} algorithm to avoid numerical
-#'   overflow/underflow in \code{qfratio::qfmrm()}.
-#'   Default \code{"coef_wise"} is typically the most robust and
-#'   modestly fast option. See documentation of
-#'   \code{qfratio::\link[qfratio]{qfrm}()} for details.
+#'   overflow/underflow in \code{qfratio::qfmrm()}.  Default \code{"coef_wise"}
+#'   is typically the most robust and modestly fast option.  See documentation
+#'   of \code{qfratio::\link[qfratio]{qfrm}()} for details.
 #' @param check_convergence
-#'   Option to specify how numerical convergence is checked.
-#'   Default for \code{avr_auto()} and \code{avr_rcor()} is a strict one
+#'   Option to specify how numerical convergence is checked.  Default for
+#'   \code{avr_auto()} and \code{avr_rcor()} is a strict one
 #'   (\code{"strict_relative"}) because no error bound is available for these
-#'   measures. Other options are: \code{"relative"}, which is far less strict,
+#'   measures.  Other options are: \code{"relative"}, which is far less strict,
 #'   and \code{"none"} (or \code{FALSE}) for no checking.
 #' @param tol_qr
 #'   Tolerance passed to \code{qr()} to determine singularity of \code{G}
@@ -55,8 +54,8 @@
 #'
 #' @return
 #' \code{qfrm} object defined by the package \code{qfratio}, which is a list
-#' including \code{$statistic} (the partial sum) and \code{$error_bound}.
-#' That package also defines \code{print} and \code{plot} methods.
+#' including \code{$statistic} (the partial sum) and \code{$error_bound}.  That
+#' package also defines \code{print} and \code{plot} methods.
 #'
 #' @references
 #' Cheverud, J. M. (1996) Quantitative genetic analysis of cranial morphology
@@ -64,17 +63,17 @@
 #'   tamarines. *Journal of Evolutionary Biology*, **9**, 5--42.
 #'   \doi{10.1046/j.1420-9101.1996.9010005.x}.
 #'
-#' Hansen, T. F. & Houle, D. (2008) Measuring and comparing evolvability and
+#' Hansen, T. F. and Houle, D. (2008) Measuring and comparing evolvability and
 #'   constraint in multivariate characters. *Journal of Evolutionary Biology*,
 #'   **21**, 1201--1219.
 #'   \doi{10.1111/j.1420-9101.2008.01573.x}.
 #'
-#' Marroig, G., Shirai, L. T., Porto A., de Oliveira, F. B., & De Conto, V.
+#' Marroig, G., Shirai, L. T., Porto A., de Oliveira, F. B. and De Conto, V.
 #'   (2009) The evolution of modularity in the mammalian skull II:
 #'   evolutionary consequences. *Evolutionary Biology*, **36**, 136--148.
 #'   \doi{10.1007/s11692-009-9051-1}.
 #'
-#' Watanabe, J. (2022). Exact expressions and numerical evaluation of average
+#' Watanabe, J. (2022) Exact expressions and numerical evaluation of average
 #'   evolvability measures for characterizing and comparing **G** matrices.
 #'   *bioRxiv* preprint, 2022.11.02.514929.
 #'   \doi{10.1101/2022.11.02.514929}.

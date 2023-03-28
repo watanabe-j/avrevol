@@ -2,13 +2,17 @@ Package: avrevol
 Type: Package
 Title: Average Evolvability Measures
 Version: 0.0.0.9000
-Date: 2023-03-18
+Date: 2023-03-28
 Authors@R: c(person("Junya", "Watanabe", email = "jw2098@cam.ac.uk",
-            role = c("aut", "cre"), comment = c(ORCID = "0000-0002-9810-5286")))
-Description: This small package provides wrapper functions to evaluate
-    average evolvability measures in evolutionary quantitative genetics,
-    based on the implementation of recursion-based evaluation of moments of
-    ratios of quadratic forms in the package qfratio.
+             role = c("aut", "cre", "cph"),
+             comment = c(ORCID = "0000-0002-9810-5286")))
+Description: Provides functions to evaluate average evolvability measures in
+    evolutionary quantitative genetics, essentially as wrappers of the
+    implementation of recursion-based evaluation of moments of ratios of
+    quadratic forms in the package 'qfratio'. Also provides functions for
+    Monte-Carlo- and delta-method-based evaluations of those quantities.
+    Developed as a supplement to Watanabe (2022)
+    <doi:10.1101/2022.11.02.514929>.
 License: GPL (>= 3)
 URL: https://github.com/watanabe-j/avrevol
 BugReports: https://github.com/watanabe-j/avrevol/issues

@@ -53,8 +53,8 @@ mc_rcor(nit, G1, G2, ...)
 of selection gradients.}
 
 \item{mu, Sigma}{Mean vector and covariance matrix, respectively, of selection gradients;
-default zero vector and identity matrix.
-Passed to \code{qfratio::rqfr()} or \code{qfratio::rqfmr()}.}
+default zero vector and identity matrix.  Passed to
+\code{qfratio::rqfr()} or \code{qfratio::rqfmr()}.}
 
 \item{tol_qr}{Tolerance passed to \code{qr()} to determine singularity of \code{G}}
 }
@@ -87,12 +87,12 @@ the average evolvability measure
 All these functions are wrappers of either
 \code{qfratio::\link[qfratio]{rqfr}()} or
 \code{qfratio::\link[qfratio]{rqfmr}()} for random number generation of
-simple and multiple ratios of quadratic forms in normal variables.
-See documentations of those functions for technical details.
+simple and multiple ratios of quadratic forms in normal variables.  See
+documentations of those functions for technical details.
 
 When \code{G} is singular and the distribution of the selection gradients
 is not within its range, the conditional evolvability and autonomy are 0
-with probability 1 (see Watanabe, 2022). Accordingly, \code{mc_cevo()} and
+with probability 1 (see Watanabe, 2022).  Accordingly, \code{mc_cevo()} and
 \code{mc_auto()} simply yield a vector of 1's in this case.
 }
 \examples{
@@ -139,12 +139,12 @@ in the cotton-top (\emph{Saguinus oedipus}) and saddle-back(\emph{S. fuscicollis
 tamarines. \emph{Journal of Evolutionary Biology}, \strong{9}, 5--42.
 \doi{10.1046/j.1420-9101.1996.9010005.x}.
 
-Cheverud, J. M. & Marroig, G. (2007) Comparing covariance matrices: random
+Cheverud, J. M. and Marroig, G. (2007) Comparing covariance matrices: random
 skewers method compared to the common principal components model.
 \emph{Genetics and Molecular Biology}, \strong{30}, 461--469.
 \doi{10.1590/S1415-47572007000300027}.
 
-Watanabe, J. (2022). Exact expressions and numerical evaluation of average
+Watanabe, J. (2022) Exact expressions and numerical evaluation of average
 evolvability measures for characterizing and comparing \strong{G} matrices.
 \emph{bioRxiv} preprint, 2022.11.02.514929.
 \doi{10.1101/2022.11.02.514929}.
