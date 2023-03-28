@@ -10,17 +10,17 @@
 #' ratios of quadratic forms in normal variables.  See documentations of
 #' those functions for technical details.
 #'
-#' When \eqn{\mathbf{G}} is singular, average conditional evolvability
+#' When \eqn{\mathbf{G}}{G} is singular, average conditional evolvability
 #' and average autonomy can be nonzero only when the distribution of
-#' \eqn{\bm{\beta}} is within the range of \eqn{\mathbf{G}}.  In
+#' \eqn{\bm{\beta}}{\beta} is within the range of \eqn{\mathbf{G}}{G}.  In
 #' \code{avr_cevo()} and \code{avr_auto()}, this condition is assessed by
-#' the QR decomposition of \eqn{\mathbf{G}} (with pivoting).  When
-#' \eqn{\mathbf{G}} is not of full-rank, \eqn{\bm{\mu}} and \eqn{\bm{\Sigma}}
-#' are projected onto the range of \eqn{\mathbf{G}} using the Q part of
-#' the QR decomposition.  If these are equal to the original ones,
-#' then the arguments are passed to evaluation of the moment using quadratic
-#' forms; otherwise, these functions return 0 (formatted as an \code{qfrm}
-#' object).
+#' the QR decomposition of \eqn{\mathbf{G}}{G} (with pivoting).  When
+#' \eqn{\mathbf{G}}{G} is not of full-rank, \eqn{\bm{\mu}}{\mu} and
+#' \eqn{\bm{\Sigma}}{\Sigma} are projected onto the range of \eqn{\mathbf{G}}{G}
+#' using the Q part of the QR decomposition.  If these are equal to the
+#' original ones, then the arguments are passed to evaluation of the moment
+#' using quadratic  forms; otherwise, these functions return 0 (formatted as
+#' an \code{qfrm} object).
 #'
 #' @param G,G1,G2
 #'   Target covariance matrix/matrices.  Assumed validly structured
