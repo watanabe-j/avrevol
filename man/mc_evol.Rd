@@ -92,7 +92,7 @@ documentations of those functions for technical details.
 
 When \code{G} is singular and the distribution of the selection gradients
 is not within its range, the conditional evolvability and autonomy are 0
-with probability 1 (see Watanabe, 2022).  Accordingly, \code{mc_cevo()} and
+with probability 1 (see Watanabe, 2023).  Accordingly, \code{mc_cevo()} and
 \code{mc_auto()} simply yield a vector of 1's in this case.
 }
 \examples{
@@ -144,10 +144,10 @@ skewers method compared to the common principal components model.
 \emph{Genetics and Molecular Biology}, \strong{30}, 461--469.
 \doi{10.1590/S1415-47572007000300027}.
 
-Watanabe, J. (2022) Exact expressions and numerical evaluation of average
+Watanabe, J. (2023) Exact expressions and numerical evaluation of average
 evolvability measures for characterizing and comparing \strong{G} matrices.
-\emph{bioRxiv} preprint, 2022.11.02.514929.
-\doi{10.1101/2022.11.02.514929}.
+\emph{Journal of Mathematical Biology}, \strong{86}, 95.
+\doi{10.1007/s00285-023-01930-8}.
 }
 \seealso{
 \code{\link[qfratio]{rqfr}}

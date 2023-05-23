@@ -9,13 +9,13 @@
 #' The package \code{qfratio} provides functions to evaluate moments of
 #' ratios of quadratic forms in normal variables using recursive algorithms.
 #' That package was originally developed for evaluating average evolvability
-#' measures (Watanabe, 2022), but is capable of evaluating moments in rather
+#' measures (Watanabe, 2023), but is capable of evaluating moments in rather
 #' general conditions beyond those.
 #' The idea of this package is to provide a simple, convenient interface
 #' specifically aiming at average evolvability measures, by passing
 #' appropriately specified arguments to functions from the \code{qfratio}
 #' package.
-#' All average evolvability measures treated by Watanabe (2022) are implemented,
+#' All average evolvability measures treated by Watanabe (2023) are implemented,
 #' accommodating arbitrary mean and covariance for the selection gradients.
 #'
 #' The DESCRIPTION file:
@@ -46,10 +46,10 @@
 #'   evolutionary consequences. *Evolutionary Biology*, **36**, 136--148.
 #'   \doi{10.1007/s11692-009-9051-1}.
 #'
-#' Watanabe, J. (2022). Exact expressions and numerical evaluation of average
+#' Watanabe, J. (2023) Exact expressions and numerical evaluation of average
 #'   evolvability measures for characterizing and comparing **G** matrices.
-#'   *bioRxiv* preprint, 2022.11.02.514929.
-#'   \doi{10.1101/2022.11.02.514929}.
+#'   *Journal of Mathematical Biology*, **86**, 95.
+#'   \doi{10.1007/s00285-023-01930-8}.
 #'
 #' @seealso
 #'   \code{\link{avr_evol}}: Average evolvability measures using

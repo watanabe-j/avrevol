@@ -39,13 +39,13 @@ quadratic forms in the package `qfratio`
 The package `qfratio` provides functions to evaluate moments of
 ratios of quadratic forms in normal variables using recursive algorithms.
 That package was originally developed for evaluating average evolvability
-measures [@Watanabe2022cevo], but is capable of evaluating moments in rather
+measures [@Watanabe2023cevo], but is capable of evaluating moments in rather
 general conditions beyond those.
 The idea of this package is to provide a simple, convenient interface
 specifically aiming at average evolvability measures, by passing
 appropriately specified arguments to functions from the `qfratio`
 package.
-All average evolvability measures treated by @Watanabe2022cevo are implemented,
+All average evolvability measures treated by @Watanabe2023cevo are implemented,
 accommodating arbitrary mean and covariance for the selection gradients.
 
 As a supplement, this package also has functions to obtain Monte Carlo

@@ -73,10 +73,10 @@
 #'   evolutionary consequences. *Evolutionary Biology*, **36**, 136--148.
 #'   \doi{10.1007/s11692-009-9051-1}.
 #'
-#' Watanabe, J. (2022) Exact expressions and numerical evaluation of average
+#' Watanabe, J. (2023) Exact expressions and numerical evaluation of average
 #'   evolvability measures for characterizing and comparing **G** matrices.
-#'   *bioRxiv* preprint, 2022.11.02.514929.
-#'   \doi{10.1101/2022.11.02.514929}.
+#'   *Journal of Mathematical Biology*, **86**, 95.
+#'   \doi{10.1007/s00285-023-01930-8}.
 #'
 #' @seealso
 #' \code{\link[qfratio]{qfrm}} and \code{\link[qfratio]{qfmrm}}
