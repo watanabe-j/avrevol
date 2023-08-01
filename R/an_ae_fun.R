@@ -148,7 +148,7 @@ NULL
 #'
 #' @rdname avr_evol
 #' @export
-avr_evol <- function(G, m = 100, ...) {
+avr_evol <- function(G, m = 100L, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     qfratio::qfrm(G, p = 1, q = 1, m = m, ...)
 }
@@ -160,7 +160,7 @@ avr_evol <- function(G, m = 100, ...) {
 #'
 #' @rdname avr_evol
 #' @export
-avr_cevo <- function(G, m = 100, mu = rep.int(0, dim(G)[1]),
+avr_cevo <- function(G, m = 100L, mu = rep.int(0, dim(G)[1]),
                      Sigma = diag(dim(G)[1]), tol_qr = 1e-7, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     qrG <- qr(G, tol = tol_qr)
@@ -192,7 +192,7 @@ avr_cevo <- function(G, m = 100, mu = rep.int(0, dim(G)[1]),
 #'
 #' @rdname avr_evol
 #' @export
-avr_resp <- function(G, m = 100, ...) {
+avr_resp <- function(G, m = 100L, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     Gsq <- crossprod(G)
     qfratio::qfrm(Gsq, p = 1/2, q = 1/2, m = m, ...)
@@ -205,7 +205,7 @@ avr_resp <- function(G, m = 100, ...) {
 #'
 #' @rdname avr_evol
 #' @export
-avr_flex <- function(G, m = 100, ...) {
+avr_flex <- function(G, m = 100L, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     Gsq <- crossprod(G)
     qfratio::qfmrm(G, Gsq, p = 1, q = 1/2, r = 1/2, m = m, ...)
@@ -218,7 +218,7 @@ avr_flex <- function(G, m = 100, ...) {
 #'
 #' @rdname avr_evol
 #' @export
-avr_auto <- function(G, m = 100, mu = rep.int(0, dim(G)[1]),
+avr_auto <- function(G, m = 100L, mu = rep.int(0, dim(G)[1]),
                      Sigma = diag(dim(G)[1]),
                      cpp_method = c("coef_wise", "double", "long_double"),
                      check_convergence = "strict_relative",
@@ -271,7 +271,7 @@ avr_inte <- function(G, ...) {
 #'
 #' @rdname avr_evol
 #' @export
-avr_cons <- function(G, m = 100,
+avr_cons <- function(G, m = 100L,
                      cpp_method = c("coef_wise", "double", "long_double"),
                      ...) {
     cpp_method <- match.arg(cpp_method)
@@ -291,7 +291,7 @@ avr_cons <- function(G, m = 100,
 #'
 #' @rdname avr_evol
 #' @export
-avr_rdif <- function(G1, G2, m = 100, ...) {
+avr_rdif <- function(G1, G2, m = 100L, ...) {
     stopifnot(
         "G1 and G2 should be symmetric" = isSymmetric(G1) && isSymmetric(G2),
         "G1 and G2 should have the same dimension" = all(dim(G1) == dim(G2))
@@ -307,7 +307,7 @@ avr_rdif <- function(G1, G2, m = 100, ...) {
 #'
 #' @rdname avr_evol
 #' @export
-avr_rcor <- function(G1, G2, m = 100,
+avr_rcor <- function(G1, G2, m = 100L,
                      cpp_method = c("coef_wise", "double", "long_double"),
                      check_convergence = "strict_relative",
                      ...) {

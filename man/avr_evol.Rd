@@ -12,24 +12,24 @@
 \alias{avr_rcor}
 \title{Series evaluation of average evolvability measures}
 \usage{
-avr_evol(G, m = 100, ...)
+avr_evol(G, m = 100L, ...)
 
 avr_cevo(
   G,
-  m = 100,
+  m = 100L,
   mu = rep.int(0, dim(G)[1]),
   Sigma = diag(dim(G)[1]),
   tol_qr = 1e-07,
   ...
 )
 
-avr_resp(G, m = 100, ...)
+avr_resp(G, m = 100L, ...)
 
-avr_flex(G, m = 100, ...)
+avr_flex(G, m = 100L, ...)
 
 avr_auto(
   G,
-  m = 100,
+  m = 100L,
   mu = rep.int(0, dim(G)[1]),
   Sigma = diag(dim(G)[1]),
   cpp_method = c("coef_wise", "double", "long_double"),
@@ -40,14 +40,19 @@ avr_auto(
 
 avr_inte(G, ...)
 
-avr_cons(G, m = 100, cpp_method = c("coef_wise", "double", "long_double"), ...)
+avr_cons(
+  G,
+  m = 100L,
+  cpp_method = c("coef_wise", "double", "long_double"),
+  ...
+)
 
-avr_rdif(G1, G2, m = 100, ...)
+avr_rdif(G1, G2, m = 100L, ...)
 
 avr_rcor(
   G1,
   G2,
-  m = 100,
+  m = 100L,
   cpp_method = c("coef_wise", "double", "long_double"),
   check_convergence = "strict_relative",
   ...
