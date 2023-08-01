@@ -41,7 +41,7 @@
 #'   of \code{qfratio::\link[qfratio]{qfrm}()} for details.
 #' @param check_convergence
 #'   Option to specify how numerical convergence is checked.  Default for
-#'   \code{avr_auto()} and \code{avr_rcor()} is a strict one
+#'   \code{avr_auto()}, \code{avr_cons()}, and \code{avr_rcor()} is a strict one
 #'   (\code{"strict_relative"}) because no error bound is available for these
 #'   measures.  Other options are: \code{"relative"}, which is far less strict,
 #'   and \code{"none"} (or \code{FALSE}) for no checking.
@@ -273,7 +273,7 @@ avr_inte <- function(G, ...) {
 #' @export
 avr_cons <- function(G, m = 100L,
                      cpp_method = c("coef_wise", "double", "long_double"),
-                     ...) {
+                     check_convergence = "strict_relative", ...) {
     cpp_method <- match.arg(cpp_method)
     stopifnot("G should be symmetric" = isSymmetric(G))
     Lsq <- eigen(G, symmetric = TRUE, only.values = TRUE)$values ^ 2
@@ -281,7 +281,7 @@ avr_cons <- function(G, m = 100L,
     Gsq1 <- diag(c(Lsq[1], rep.int(0, n - 1)))
     Gsq <- diag(Lsq)
     qfratio::qfrm(Gsq1, Gsq, p = 1/2, q = 1/2, m = m, cpp_method = cpp_method,
-                  ...)
+                  check_convergence = check_convergence, ...)
 }
 
 #### avr_rdif ####

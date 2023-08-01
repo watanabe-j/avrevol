@@ -44,6 +44,7 @@ avr_cons(
   G,
   m = 100L,
   cpp_method = c("coef_wise", "double", "long_double"),
+  check_convergence = "strict_relative",
   ...
 )
 
@@ -84,7 +85,7 @@ is typically the most robust and modestly fast option.  See documentation
 of \code{qfratio::\link[qfratio]{qfrm}()} for details.}
 
 \item{check_convergence}{Option to specify how numerical convergence is checked.  Default for
-\code{avr_auto()} and \code{avr_rcor()} is a strict one
+\code{avr_auto()}, \code{avr_cons()}, and \code{avr_rcor()} is a strict one
 (\code{"strict_relative"}) because no error bound is available for these
 measures.  Other options are: \code{"relative"}, which is far less strict,
 and \code{"none"} (or \code{FALSE}) for no checking.}
