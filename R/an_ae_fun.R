@@ -35,7 +35,8 @@
 #'   \code{qfratio::qfrm()} or \code{qfratio::qfmrm()}.
 #' @param cpp_method
 #'   Option to specify \code{C++} algorithm to avoid numerical
-#'   overflow/underflow in \code{qfratio::qfmrm()}.  Default \code{"coef_wise"}
+#'   overflow/underflow in \code{qfratio::qfrm()} and
+#'   \code{qfratio::qfmrm()}.  Default \code{"coef_wise"}
 #'   is typically the most robust and modestly fast option.  See documentation
 #'   of \code{qfratio::\link[qfratio]{qfrm}()} for details.
 #' @param check_convergence
@@ -261,6 +262,26 @@ avr_inte <- function(G, ...) {
                        terms = 1 - auto$terms,
                        error_bound = auto$error_bound,
                        seq_error = auto$seq_error)
+}
+
+#### avr_cons ####
+#' Series evaluation of average constraints
+#'
+#' \code{avr_cons()}: Average constraints
+#'
+#' @rdname avr_evol
+#' @export
+avr_cons <- function(G, m = 100,
+                     cpp_method = c("coef_wise", "double", "long_double"),
+                     ...) {
+    cpp_method <- match.arg(cpp_method)
+    stopifnot("G should be symmetric" = isSymmetric(G))
+    Lsq <- eigen(G, symmetric = TRUE, only.values = TRUE)$values ^ 2
+    n <- length(Lsq)
+    Gsq1 <- diag(c(Lsq[1], rep.int(0, n - 1)))
+    Gsq <- diag(Lsq)
+    qfratio::qfrm(Gsq1, Gsq, p = 1/2, q = 1/2, m = m, cpp_method = cpp_method,
+                  ...)
 }
 
 #### avr_rdif ####

@@ -7,6 +7,7 @@
 \alias{avr_flex}
 \alias{avr_auto}
 \alias{avr_inte}
+\alias{avr_cons}
 \alias{avr_rdif}
 \alias{avr_rcor}
 \title{Series evaluation of average evolvability measures}
@@ -39,6 +40,8 @@ avr_auto(
 
 avr_inte(G, ...)
 
+avr_cons(G, m = 100, cpp_method = c("coef_wise", "double", "long_double"), ...)
+
 avr_rdif(G1, G2, m = 100, ...)
 
 avr_rcor(
@@ -70,7 +73,8 @@ default zero vector and identity matrix.  Passed to
 \item{tol_qr}{Tolerance passed to \code{qr()} to determine singularity of \code{G}}
 
 \item{cpp_method}{Option to specify \code{C++} algorithm to avoid numerical
-overflow/underflow in \code{qfratio::qfmrm()}.  Default \code{"coef_wise"}
+overflow/underflow in \code{qfratio::qfrm()} and
+\code{qfratio::qfmrm()}.  Default \code{"coef_wise"}
 is typically the most robust and modestly fast option.  See documentation
 of \code{qfratio::\link[qfratio]{qfrm}()} for details.}
 
@@ -100,6 +104,8 @@ as their partial sums.
 \code{avr_auto()}: Average autonomy
 
 \code{avr_inte()}: Average integration
+
+\code{avr_cons()}: Average constraints
 
 \code{avr_rdif()}: Average response difference
 

@@ -44,6 +44,11 @@
 #'   *Genetics and Molecular Biology*, **30**, 461--469.
 #'   \doi{10.1590/S1415-47572007000300027}.
 #'
+#' Marroig, G., Shirai, L. T., Porto A., de Oliveira, F. B. and De Conto, V.
+#'   (2009) The evolution of modularity in the mammalian skull II:
+#'   evolutionary consequences. *Evolutionary Biology*, **36**, 136--148.
+#'   \doi{10.1007/s11692-009-9051-1}.
+#'
 #' Watanabe, J. (2023) Exact expressions and numerical evaluation of average
 #'   evolvability measures for characterizing and comparing **G** matrices.
 #'   *Journal of Mathematical Biology*, **86**, 95.
@@ -202,6 +207,22 @@ mc_auto <- function(nit, G, mu = rep.int(0, dim(G)[1]),
 #' @export
 mc_inte <- function(nit, G, ...) {
     1 - mc_auto(nit = nit, G = G, ...)
+}
+
+#### mc_cons ####
+#' Monte Carlo sampling for (average) constraints
+#'
+#' \code{mc_cons()}: (Average) constraints
+#'
+#' @rdname mc_evol
+#' @export
+mc_cons <- function(nit, G, ...) {
+    stopifnot("G should be symmetric" = isSymmetric(G))
+    Lsq <- eigen(G, symmetric = TRUE, only.values = TRUE)$values ^ 2
+    n <- length(Lsq)
+    Gsq1 <- diag(c(Lsq[1], rep.int(0, n - 1)))
+    Gsq <- diag(Lsq)
+    qfratio::rqfr(nit, Gsq1, Gsq, p = 1/2, q = 1/2, ...)
 }
 
 #### mc_rdif ####

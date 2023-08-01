@@ -7,6 +7,7 @@
 \alias{mc_flex}
 \alias{mc_auto}
 \alias{mc_inte}
+\alias{mc_cons}
 \alias{mc_rdif}
 \alias{mc_rcor}
 \title{Monte Carlo sampling for (average) evolvability measures}
@@ -36,6 +37,8 @@ mc_auto(
 )
 
 mc_inte(nit, G, ...)
+
+mc_cons(nit, G, ...)
 
 mc_rdif(nit, G1, G2, ...)
 
@@ -77,6 +80,8 @@ the average evolvability measure
 \code{mc_auto()}: (Average) autonomy
 
 \code{mc_inte()}: (Average) integration
+
+\code{mc_cons()}: (Average) constraints
 
 \code{mc_rdif()}: (Average) response difference
 
@@ -143,6 +148,11 @@ Cheverud, J. M. and Marroig, G. (2007) Comparing covariance matrices: random
 skewers method compared to the common principal components model.
 \emph{Genetics and Molecular Biology}, \strong{30}, 461--469.
 \doi{10.1590/S1415-47572007000300027}.
+
+Marroig, G., Shirai, L. T., Porto A., de Oliveira, F. B. and De Conto, V.
+(2009) The evolution of modularity in the mammalian skull II:
+evolutionary consequences. \emph{Evolutionary Biology}, \strong{36}, 136--148.
+\doi{10.1007/s11692-009-9051-1}.
 
 Watanabe, J. (2023) Exact expressions and numerical evaluation of average
 evolvability measures for characterizing and comparing \strong{G} matrices.
