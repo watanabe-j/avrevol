@@ -44,11 +44,6 @@ seems to represent average sum of squares from the average (divided by
 of variance for infinite populations (divided by \eqn{k - 1}).  The
 package \code{evolvability} v 2.0.0 incorrectly uses the latter divisor.
 
-\code{svd(..., nu = 0L, nv = 0L)$d} is used to extract eigenvalues because
-it is slightly faster than \code{eigen(..., symmetric = TRUE)$values}.
-Note that the squared singular values of \code{A} is equal to the eigenvalues
-of \code{crossprod(A)}.
-
 Evolvability measures not treated in Hansen and Houle (2008) (flexibility and
 response correlation) have not been implemented (although this should be
 doable).  All the expressions are for the spherical normal (or uniform on

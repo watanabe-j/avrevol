@@ -10,11 +10,6 @@
 #' of variance for infinite populations (divided by \eqn{k - 1}).  The
 #' package \code{evolvability} v 2.0.0 incorrectly uses the latter divisor.
 #'
-#' \code{svd(..., nu = 0L, nv = 0L)$d} is used to extract eigenvalues because
-#' it is slightly faster than \code{eigen(..., symmetric = TRUE)$values}.
-#' Note that the squared singular values of \code{A} is equal to the eigenvalues
-#' of \code{crossprod(A)}.
-#'
 #' Evolvability measures not treated in Hansen and Houle (2008) (flexibility and
 #' response correlation) have not been implemented (although this should be
 #' doable).  All the expressions are for the spherical normal (or uniform on
@@ -69,7 +64,7 @@ NULL
 hh_cevo <- function(G) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     I <- function(x) sum((x - mean(x)) ^ 2) / mean(x)^2 / length(x)
-    L <- svd(G, nu = 0L, nv = 0L)$d
+    L <- eigen(G, symmetric = TRUE, only.values = TRUE)$values
     p <- length(L)
     (1 + 2 * I(1 / L) / (p + 2)) / mean(1 / L)
 }
@@ -84,7 +79,7 @@ hh_cevo <- function(G) {
 hh_resp <- function(G) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     I <- function(x) sum((x - mean(x)) ^ 2) / mean(x)^2 / length(x)
-    L <- svd(G, nu = 0L, nv = 0L)$d
+    L <- eigen(G, symmetric = TRUE, only.values = TRUE)$values
     p <- length(L)
     sqrt(mean(L ^ 2)) * (1 - I(L ^ 2) / 4 / (p + 2))
 }
@@ -100,7 +95,7 @@ hh_auto <- function(G) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     I <- function(x) sum((x - mean(x)) ^ 2) / mean(x)^2 / length(x)
     H <- function(x) 1 / mean(1 / x)
-    L <- svd(G, nu = 0L, nv = 0L)$d
+    L <- eigen(G, symmetric = TRUE, only.values = TRUE)$values
     p <- length(L)
     H(L) / mean(L) *
         ( 1 + 2 * (I(L) + I(1 / L) - 1 + H(L) / mean(L) +
@@ -131,7 +126,7 @@ hh_rdif <- function(G1, G2) {
         "G1 and G2 should have the same dimension" = all(dim(G1) == dim(G2))
     )
     I <- function(x) sum((x - mean(x)) ^ 2) / mean(x)^2 / length(x)
-    L12sq <- svd(G1 - G2, nu = 0L, nv = 0L)$d ^ 2
+    L12sq <- eigen(G1 - G2, symmetric = TRUE, only.values = TRUE)$values ^ 2
     p <- length(L12sq)
     sqrt(mean(L12sq)) * (1 - I(L12sq) / 4 / (p + 2))
 }
