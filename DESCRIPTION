@@ -1,8 +1,8 @@
 Package: avrevol
 Type: Package
 Title: Average Evolvability Measures
-Version: 0.0.0.9000
-Date: 2023-10-03
+Version: 0.0.0.9010
+Date: 2023-10-04
 Authors@R: c(person("Junya", "Watanabe", email = "jw2098@cam.ac.uk",
              role = c("aut", "cre", "cph"),
              comment = c(ORCID = "0000-0002-9810-5286")))

@@ -259,9 +259,10 @@ avr_auto <- function(G, m = 100L, mu = rep.int(0, dim(G)[1]),
 avr_inte <- function(G, ...) {
     auto <- avr_auto(G = G, ...)
     qfratio:::new_qfrm(statistic = 1 - auto$statistic,
-                       terms = 1 - auto$terms,
-                       error_bound = auto$error_bound,
-                       seq_error = auto$seq_error)
+                       terms = c(1 - auto$terms[1],
+                                 diff(1 - cumsum(auto$terms))),
+                       error_bound = -1 * auto$error_bound,
+                       seq_error = -1 * auto$seq_error)
 }
 
 #### avr_cons ####
