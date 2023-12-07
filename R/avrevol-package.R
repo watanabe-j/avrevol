@@ -23,7 +23,7 @@
 #' \packageIndices{avrevol}
 #'
 #' @section Author/Maintainer:
-#' Junya Watanabe <jw2098@cam.ac.uk>
+#' Junya Watanabe <Junya.Watanabe@uab.cat>
 #'
 #' @references
 #' Cheverud, J. M. (1996) Quantitative genetic analysis of cranial morphology
