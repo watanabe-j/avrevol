@@ -65,8 +65,8 @@ hh_cevo <- function(G) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     I <- function(x) sum((x - mean(x))^2) / mean(x)^2 / length(x)
     L <- eigen(G, symmetric = TRUE, only.values = TRUE)$values
-    p <- length(L)
-    (1 + 2 * I(1 / L) / (p + 2)) / mean(1 / L)
+    nvar <- length(L)
+    (1 + 2 * I(1 / L) / (nvar + 2)) / mean(1 / L)
 }
 
 #### hh_resp ####
@@ -80,8 +80,8 @@ hh_resp <- function(G) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     I <- function(x) sum((x - mean(x))^2) / mean(x)^2 / length(x)
     L <- eigen(G, symmetric = TRUE, only.values = TRUE)$values
-    p <- length(L)
-    sqrt(mean(L^2)) * (1 - I(L^2) / 4 / (p + 2))
+    nvar <- length(L)
+    sqrt(mean(L^2)) * (1 - I(L^2) / 4 / (nvar + 2))
 }
 
 #### hh_auto ####
@@ -96,10 +96,10 @@ hh_auto <- function(G) {
     I <- function(x) sum((x - mean(x))^2) / mean(x)^2 / length(x)
     H <- function(x) 1 / mean(1 / x)
     L <- eigen(G, symmetric = TRUE, only.values = TRUE)$values
-    p <- length(L)
+    nvar <- length(L)
     H(L) / mean(L) *
         ( 1 + 2 * (I(L) + I(1 / L) - 1 + H(L) / mean(L) +
-         2 * I(L) * I(1 / L) / (p + 2)) / (p + 2) )
+         2 * I(L) * I(1 / L) / (nvar + 2)) / (nvar + 2) )
 }
 
 #### hh_inte ####
@@ -127,6 +127,6 @@ hh_rdif <- function(G1, G2) {
     )
     I <- function(x) sum((x - mean(x))^2) / mean(x)^2 / length(x)
     L12sq <- eigen(G1 - G2, symmetric = TRUE, only.values = TRUE)$values^2
-    p <- length(L12sq)
-    sqrt(mean(L12sq)) * (1 - I(L12sq) / 4 / (p + 2))
+    nvar <- length(L12sq)
+    sqrt(mean(L12sq)) * (1 - I(L12sq) / 4 / (nvar + 2))
 }
