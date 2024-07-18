@@ -17,8 +17,8 @@ avr_evol(G, m = 100L, ...)
 avr_cevo(
   G,
   m = 100L,
-  mu = rep.int(0, dim(G)[1]),
-  Sigma = diag(dim(G)[1]),
+  mu = rep.int(0, nvar),
+  Sigma = diag(nvar),
   tol_qr = 1e-07,
   ...
 )
@@ -30,8 +30,8 @@ avr_flex(G, m = 100L, ...)
 avr_auto(
   G,
   m = 100L,
-  mu = rep.int(0, dim(G)[1]),
-  Sigma = diag(dim(G)[1]),
+  mu = rep.int(0, nvar),
+  Sigma = diag(nvar),
   cpp_method = c("coef_wise", "double", "long_double"),
   check_convergence = "strict_relative",
   tol_qr = 1e-07,

@@ -109,8 +109,6 @@
 #' plot(res_evol_nsph)
 #' mean(mc_evol(nit, G1, mu = mu, Sigma = Sigma))
 #'
-#' @docType package
-#' @name avrevol-package
-# #' @aliases avrevol
+#' @keywords internal
 #'
-NULL
+"_PACKAGE"

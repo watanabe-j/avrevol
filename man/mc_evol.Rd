@@ -14,27 +14,13 @@
 \usage{
 mc_evol(nit, G, ...)
 
-mc_cevo(
-  nit,
-  G,
-  mu = rep.int(0, dim(G)[1]),
-  Sigma = diag(dim(G)[1]),
-  tol_qr = 1e-07,
-  ...
-)
+mc_cevo(nit, G, mu = rep.int(0, nvar), Sigma = diag(nvar), tol_qr = 1e-07, ...)
 
 mc_resp(nit, G, ...)
 
 mc_flex(nit, G, ...)
 
-mc_auto(
-  nit,
-  G,
-  mu = rep.int(0, dim(G)[1]),
-  Sigma = diag(dim(G)[1]),
-  tol_qr = 1e-07,
-  ...
-)
+mc_auto(nit, G, mu = rep.int(0, nvar), Sigma = diag(nvar), tol_qr = 1e-07, ...)
 
 mc_inte(nit, G, ...)
 

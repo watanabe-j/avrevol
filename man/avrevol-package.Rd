@@ -2,6 +2,7 @@
 % Please edit documentation in R/avrevol-package.R
 \docType{package}
 \name{avrevol-package}
+\alias{avrevol}
 \alias{avrevol-package}
 \title{avrevol: Average Evolvability Measures}
 \description{
@@ -117,3 +118,8 @@ the delta method of Hansen & Houle
 \code{\link{mc_evol}}: Monte Carlo sampling for (average) evolvability
 measures
 }
+\author{
+\strong{Maintainer}: Junya Watanabe \email{Junya.Watanabe@uab.cat} (\href{https://orcid.org/0000-0002-9810-5286}{ORCID}) [copyright holder]
+
+}
+\keyword{internal}
