@@ -22,9 +22,6 @@
 #' \packageDESCRIPTION{avrevol}
 #' \packageIndices{avrevol}
 #'
-#' @section Author/Maintainer:
-#' Junya Watanabe <Junya.Watanabe@uab.cat>
-#'
 #' @references
 #' Cheverud, J. M. (1996) Quantitative genetic analysis of cranial morphology
 #'   in the cotton-top (*Saguinus oedipus*) and saddle-back (*S. fuscicollis*)

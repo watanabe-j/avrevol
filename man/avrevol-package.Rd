@@ -28,11 +28,6 @@ The DESCRIPTION file:
 \packageDESCRIPTION{avrevol}
 \packageIndices{avrevol}
 }
-\section{Author/Maintainer}{
-
-Junya Watanabe \href{mailto:Junya.Watanabe@uab.cat}{Junya.Watanabe@uab.cat}
-}
-
 \examples{
 ## Simple covariance matrices
 nv <- 4
