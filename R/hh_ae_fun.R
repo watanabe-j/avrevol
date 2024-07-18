@@ -39,7 +39,7 @@
 #'
 #' ######
 #' ## Hansen & Houle's (2008) delta method approximations:
-#' 
+#'
 #' ## - average conditional evolvability
 #' hh_cevo(G1)
 #'
@@ -63,7 +63,7 @@ NULL
 #' @export
 hh_cevo <- function(G) {
     stopifnot("G should be symmetric" = isSymmetric(G))
-    I <- function(x) sum((x - mean(x)) ^ 2) / mean(x)^2 / length(x)
+    I <- function(x) sum((x - mean(x))^2) / mean(x)^2 / length(x)
     L <- eigen(G, symmetric = TRUE, only.values = TRUE)$values
     p <- length(L)
     (1 + 2 * I(1 / L) / (p + 2)) / mean(1 / L)
@@ -78,10 +78,10 @@ hh_cevo <- function(G) {
 #' @export
 hh_resp <- function(G) {
     stopifnot("G should be symmetric" = isSymmetric(G))
-    I <- function(x) sum((x - mean(x)) ^ 2) / mean(x)^2 / length(x)
+    I <- function(x) sum((x - mean(x))^2) / mean(x)^2 / length(x)
     L <- eigen(G, symmetric = TRUE, only.values = TRUE)$values
     p <- length(L)
-    sqrt(mean(L ^ 2)) * (1 - I(L ^ 2) / 4 / (p + 2))
+    sqrt(mean(L^2)) * (1 - I(L^2) / 4 / (p + 2))
 }
 
 #### hh_auto ####
@@ -93,7 +93,7 @@ hh_resp <- function(G) {
 #' @export
 hh_auto <- function(G) {
     stopifnot("G should be symmetric" = isSymmetric(G))
-    I <- function(x) sum((x - mean(x)) ^ 2) / mean(x)^2 / length(x)
+    I <- function(x) sum((x - mean(x))^2) / mean(x)^2 / length(x)
     H <- function(x) 1 / mean(1 / x)
     L <- eigen(G, symmetric = TRUE, only.values = TRUE)$values
     p <- length(L)
@@ -125,8 +125,8 @@ hh_rdif <- function(G1, G2) {
         "G1 and G2 should be symmetric" = isSymmetric(G1) && isSymmetric(G2),
         "G1 and G2 should have the same dimension" = all(dim(G1) == dim(G2))
     )
-    I <- function(x) sum((x - mean(x)) ^ 2) / mean(x)^2 / length(x)
-    L12sq <- eigen(G1 - G2, symmetric = TRUE, only.values = TRUE)$values ^ 2
+    I <- function(x) sum((x - mean(x))^2) / mean(x)^2 / length(x)
+    L12sq <- eigen(G1 - G2, symmetric = TRUE, only.values = TRUE)$values^2
     p <- length(L12sq)
     sqrt(mean(L12sq)) * (1 - I(L12sq) / 4 / (p + 2))
 }
