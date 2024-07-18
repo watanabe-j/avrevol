@@ -159,7 +159,7 @@ mean(mc_evol(nit, G1, mu = mu, Sigma = Sigma))
 ## References
 
 <div id="refs" class="references csl-bib-body hanging-indent"
-line-spacing="2">
+entry-spacing="0" line-spacing="2">
 
 <div id="ref-BolstadEtAl2014" class="csl-entry">
 
