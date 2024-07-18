@@ -150,7 +150,7 @@ NULL
 #' @export
 avr_evol <- function(G, m = 100L, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
-    qfratio::qfrm(G, p = 1, q = 1, m = m, ...)
+    qfratio::qfrm(A = G, B = diag(dim(G)[1]), p = 1, q = 1, m = m, ...)
 }
 
 #### avr_cevo ####
@@ -160,19 +160,20 @@ avr_evol <- function(G, m = 100L, ...) {
 #'
 #' @rdname avr_evol
 #' @export
-avr_cevo <- function(G, m = 100L, mu = rep.int(0, dim(G)[1]),
-                     Sigma = diag(dim(G)[1]), tol_qr = 1e-7, ...) {
+avr_cevo <- function(G, m = 100L, mu = rep.int(0, nvar),
+                     Sigma = diag(nvar), tol_qr = 1e-7, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
+    nvar <- dim(G)[1]
     qrG <- qr(G, tol = tol_qr)
-    if (qrG$rank < dim(G)[1]) {
+    if (qrG$rank < nvar) {
         proj_RG <- tcrossprod(qr.Q(qrG)[, seq_len(qrG$rank)])
         mu_ <- proj_RG %*% c(mu)
         Sigma_ <- tcrossprod(proj_RG, tcrossprod(proj_RG, Sigma))
         beta_in_RG <- qfratio:::iseq(mu, mu_) && qfratio:::iseq(Sigma, Sigma_)
         if (beta_in_RG) {
             Gi <- MASS::ginv(G)
-            return(qfratio::qfrm(B = Gi, p = 1, q = 1, m = m,
-                                 mu = mu, Sigma = Sigma, ...))
+            return(qfratio::qfrm(A = diag(nvar), B = Gi, p = 1, q = 1,
+                                 m = m, mu = mu, Sigma = Sigma, ...))
         } else {
             message("Singular covariance matrix; ",
                     "average conditional evolvability is 0")
@@ -180,7 +181,7 @@ avr_cevo <- function(G, m = 100L, mu = rep.int(0, dim(G)[1]),
         }
     } else {
         Gi <- chol2inv(chol(G))
-        return(qfratio::qfrm(B = Gi, p = 1, q = 1, m = m,
+        return(qfratio::qfrm(A = diag(nvar), B = Gi, p = 1, q = 1, m = m,
                              mu = mu, Sigma = Sigma, ...))
     }
 }
@@ -194,8 +195,9 @@ avr_cevo <- function(G, m = 100L, mu = rep.int(0, dim(G)[1]),
 #' @export
 avr_resp <- function(G, m = 100L, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
+    nvar <- dim(G)[1]
     Gsq <- crossprod(G)
-    qfratio::qfrm(Gsq, p = 1/2, q = 1/2, m = m, ...)
+    qfratio::qfrm(A = Gsq, B = diag(nvar), p = 1/2, q = 1/2, m = m, ...)
 }
 
 #### avr_flex ####
@@ -207,8 +209,10 @@ avr_resp <- function(G, m = 100L, ...) {
 #' @export
 avr_flex <- function(G, m = 100L, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
+    nvar <- dim(G)[1]
     Gsq <- crossprod(G)
-    qfratio::qfmrm(G, Gsq, p = 1, q = 1/2, r = 1/2, m = m, ...)
+    qfratio::qfmrm(A = G, B = Gsq, D = diag(nvar),
+                   p = 1, q = 1/2, r = 1/2, m = m, ...)
 }
 
 #### avr_auto ####
@@ -218,22 +222,24 @@ avr_flex <- function(G, m = 100L, ...) {
 #'
 #' @rdname avr_evol
 #' @export
-avr_auto <- function(G, m = 100L, mu = rep.int(0, dim(G)[1]),
-                     Sigma = diag(dim(G)[1]),
+avr_auto <- function(G, m = 100L, mu = rep.int(0, nvar),
+                     Sigma = diag(nvar),
                      cpp_method = c("coef_wise", "double", "long_double"),
                      check_convergence = "strict_relative",
                      tol_qr = 1e-7, ...) {
     cpp_method <- match.arg(cpp_method)
     stopifnot("G should be symmetric" = isSymmetric(G))
+    nvar <- dim(G)[1]
     qrG <- qr(G, tol = tol_qr)
-    if (qrG$rank < dim(G)[1]) {
+    if (qrG$rank < nvar) {
         proj_RG <- tcrossprod(qr.Q(qrG)[, seq_len(qrG$rank)])
         mu_ <- proj_RG %*% c(mu)
         Sigma_ <- tcrossprod(proj_RG, tcrossprod(proj_RG, Sigma))
         beta_in_RG <- qfratio:::iseq(mu, mu_) && qfratio:::iseq(Sigma, Sigma_)
         if (beta_in_RG) {
             Gi <- MASS::ginv(G)
-            return(qfratio::qfmrm(B = G, D = Gi, p = 2, q = 1, r = 1, m = m,
+            return(qfratio::qfmrm(A = diag(nvar), B = G, D = Gi,
+                                  p = 2, q = 1, r = 1, m = m,
                                   mu = mu, Sigma = Sigma,
                                   cpp_method = cpp_method, ...))
         } else {
@@ -242,7 +248,8 @@ avr_auto <- function(G, m = 100L, mu = rep.int(0, dim(G)[1]),
         }
     } else {
         Gi <- chol2inv(chol(G))
-        return(qfratio::qfmrm(B = G, D = Gi, p = 2, q = 1, r = 1, m = m,
+        return(qfratio::qfmrm(A = diag(nvar), B = G, D = Gi,
+                              p = 2, q = 1, r = 1, m = m,
                               mu = mu, Sigma = Sigma,
                               cpp_method = cpp_method,
                               check_convergence = check_convergence, ...))
@@ -278,10 +285,11 @@ avr_cons <- function(G, m = 100L,
     cpp_method <- match.arg(cpp_method)
     stopifnot("G should be symmetric" = isSymmetric(G))
     Lsq <- eigen(G, symmetric = TRUE, only.values = TRUE)$values ^ 2
-    n <- length(Lsq)
-    Gsq1 <- diag(c(Lsq[1], rep.int(0, n - 1)))
+    nvar <- length(Lsq)
+    Gsq1 <- diag(c(Lsq[1], rep.int(0, nvar - 1)))
     Gsq <- diag(Lsq)
-    qfratio::qfrm(Gsq1, Gsq, p = 1/2, q = 1/2, m = m, cpp_method = cpp_method,
+    qfratio::qfrm(A = Gsq1, B = Gsq, p = 1/2, q = 1/2, m = m,
+                  cpp_method = cpp_method,
                   check_convergence = check_convergence, ...)
 }
 
@@ -297,8 +305,9 @@ avr_rdif <- function(G1, G2, m = 100L, ...) {
         "G1 and G2 should be symmetric" = isSymmetric(G1) && isSymmetric(G2),
         "G1 and G2 should have the same dimension" = all(dim(G1) == dim(G2))
     )
+    nvar <- dim(G1)[1]
     Gdsq <- crossprod(G1 - G2)
-    qfratio::qfrm(Gdsq, p = 1/2, q = 1/2, m = m, ...)
+    qfratio::qfrm(A = Gdsq, B = diag(nvar), p = 1/2, q = 1/2, m = m, ...)
 }
 
 #### avr_rcor ####
@@ -320,7 +329,7 @@ avr_rcor <- function(G1, G2, m = 100L,
     G12 <- crossprod(G1, G2)
     G1sq <- crossprod(G1)
     G2sq <- crossprod(G2)
-    qfratio::qfmrm(G12, G1sq, G2sq, p = 1, q = 1/2, r = 1/2, m = m,
+    qfratio::qfmrm(A = G12, B = G1sq, D = G2sq, p = 1, q = 1/2, r = 1/2, m = m,
                    cpp_method = cpp_method,
                    check_convergence = check_convergence, ...)
 }
