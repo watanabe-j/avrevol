@@ -73,7 +73,8 @@ depending on desired accuracy.}
 of selection gradients.}
 
 \item{mu, Sigma}{Mean vector and covariance matrix, respectively, of selection gradients;
-default zero vector and identity matrix.  Passed to
+default zero vector and identity matrix with dimension \code{nvar}
+deduced from that of \code{G} (or \code{G1}).  Passed to
 \code{qfratio::qfrm()} or \code{qfratio::qfmrm()}.}
 
 \item{tol_qr}{Tolerance passed to \code{qr()} to determine singularity of \code{G}}

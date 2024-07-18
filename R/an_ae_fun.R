@@ -31,7 +31,8 @@
 #'   depending on desired accuracy.
 #' @param mu,Sigma
 #'   Mean vector and covariance matrix, respectively, of selection gradients;
-#'   default zero vector and identity matrix.  Passed to
+#'   default zero vector and identity matrix with dimension \code{nvar}
+#'   deduced from that of \code{G} (or \code{G1}).  Passed to
 #'   \code{qfratio::qfrm()} or \code{qfratio::qfmrm()}.
 #' @param cpp_method
 #'   Option to specify \code{C++} algorithm to avoid numerical
