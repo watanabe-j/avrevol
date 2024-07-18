@@ -229,8 +229,8 @@ mc_cons <- function(nit, G, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     Lsq <- eigen(G, symmetric = TRUE, only.values = TRUE)$values ^ 2
     nvar <- length(Lsq)
-    Gsq1 <- diag(c(Lsq[1], rep.int(0, nvar - 1)))
-    Gsq <- diag(Lsq)
+    Gsq1 <- diag(c(Lsq[1], rep.int(0, nvar - 1)), nrow = nvar, ncol = nvar)
+    Gsq <- diag(Lsq, nrow = nvar, ncol = nvar)
     qfratio::rqfr(nit = nit, A = Gsq1, B = Gsq, p = 1/2, q = 1/2, ...)
 }
 
