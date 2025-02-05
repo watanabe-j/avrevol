@@ -19,7 +19,9 @@ avr_cevo(
   m = 100L,
   mu = rep.int(0, nvar),
   Sigma = diag(nvar),
-  tol_qr = 1e-07,
+  tol = sqrt(.Machine$double.eps),
+  tol_qr = tol,
+  tol_ginv = tol,
   ...
 )
 
@@ -34,7 +36,9 @@ avr_auto(
   Sigma = diag(nvar),
   cpp_method = c("coef_wise", "double", "long_double"),
   check_convergence = "strict_relative",
-  tol_qr = 1e-07,
+  tol = sqrt(.Machine$double.eps),
+  tol_qr = tol,
+  tol_ginv = tol,
   ...
 )
 
@@ -77,7 +81,11 @@ default zero vector and identity matrix with dimension \code{nvar}
 deduced from that of \code{G} (or \code{G1}).  Passed to
 \code{qfratio::qfrm()} or \code{qfratio::qfmrm()}.}
 
-\item{tol_qr}{Tolerance passed to \code{qr()} to determine singularity of \code{G}}
+\item{tol, tol_qr, tol_ginv}{Tolerance to determine singularity of \code{G}.  By default, \code{tol}
+is copied into \code{tol_qr} and \code{tol_ginv}, which in turn are
+passed to \code{\link[base]{qr}()} and \code{\link[MASS]{ginv}()},
+respectively.  These can be specified separately if desired
+(mainly for debugging purposes).}
 
 \item{cpp_method}{Option to specify \code{C++} algorithm to avoid numerical
 overflow/underflow in \code{qfratio::qfrm()} and

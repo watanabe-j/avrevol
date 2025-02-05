@@ -46,8 +46,12 @@
 #'   (\code{"strict_relative"}) because no error bound is available for these
 #'   measures.  Other options are: \code{"relative"}, which is far less strict,
 #'   and \code{"none"} (or \code{FALSE}) for no checking.
-#' @param tol_qr
-#'   Tolerance passed to \code{qr()} to determine singularity of \code{G}
+#' @param tol,tol_qr,tol_ginv
+#'   Tolerance to determine singularity of \code{G}.  By default, \code{tol}
+#'   is copied into \code{tol_qr} and \code{tol_ginv}, which in turn are
+#'   passed to \code{\link[base]{qr}()} and \code{\link[MASS]{ginv}()},
+#'   respectively.  These can be specified separately if desired
+#'   (mainly for debugging purposes).
 #' @param ...
 #'   Additional arguments are passed to \code{qfratio::qfrm()} or
 #'   \code{qfratio::qfmrm()}.  Notable arguments involve \code{mu} and
@@ -162,7 +166,8 @@ avr_evol <- function(G, m = 100L, ...) {
 #' @rdname avr_evol
 #' @export
 avr_cevo <- function(G, m = 100L, mu = rep.int(0, nvar),
-                     Sigma = diag(nvar), tol_qr = 1e-7, ...) {
+                     Sigma = diag(nvar), tol = sqrt(.Machine$double.eps),
+                     tol_qr = tol, tol_ginv = tol, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     nvar <- dim(G)[1]
     qrG <- qr(G, tol = tol_qr)
@@ -172,7 +177,7 @@ avr_cevo <- function(G, m = 100L, mu = rep.int(0, nvar),
         Sigma_ <- tcrossprod(proj_RG, tcrossprod(proj_RG, Sigma))
         beta_in_RG <- qfratio:::iseq(mu, mu_) && qfratio:::iseq(Sigma, Sigma_)
         if (beta_in_RG) {
-            Gi <- MASS::ginv(G)
+            Gi <- MASS::ginv(G, tol = tol_ginv)
             return(qfratio::qfrm(A = diag(nvar), B = Gi, p = 1, q = 1,
                                  m = m, mu = mu, Sigma = Sigma, ...))
         } else {
@@ -227,7 +232,8 @@ avr_auto <- function(G, m = 100L, mu = rep.int(0, nvar),
                      Sigma = diag(nvar),
                      cpp_method = c("coef_wise", "double", "long_double"),
                      check_convergence = "strict_relative",
-                     tol_qr = 1e-7, ...) {
+                     tol = sqrt(.Machine$double.eps),
+                     tol_qr = tol, tol_ginv = tol, ...) {
     cpp_method <- match.arg(cpp_method)
     stopifnot("G should be symmetric" = isSymmetric(G))
     nvar <- dim(G)[1]
@@ -238,7 +244,7 @@ avr_auto <- function(G, m = 100L, mu = rep.int(0, nvar),
         Sigma_ <- tcrossprod(proj_RG, tcrossprod(proj_RG, Sigma))
         beta_in_RG <- qfratio:::iseq(mu, mu_) && qfratio:::iseq(Sigma, Sigma_)
         if (beta_in_RG) {
-            Gi <- MASS::ginv(G)
+            Gi <- MASS::ginv(G, tol = tol_ginv)
             return(qfratio::qfmrm(A = diag(nvar), B = G, D = Gi,
                                   p = 2, q = 1, r = 1, m = m,
                                   mu = mu, Sigma = Sigma,

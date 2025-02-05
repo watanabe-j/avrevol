@@ -119,7 +119,8 @@ mc_evol <- function(nit, G, ...) {
 #' @rdname mc_evol
 #' @export
 mc_cevo <- function(nit, G, mu = rep.int(0, nvar),
-                    Sigma = diag(nvar), tol_qr = 1e-7, ...) {
+                    Sigma = diag(nvar), tol = sqrt(.Machine$double.eps),
+                     tol_qr = tol, tol_ginv = tol, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     nvar <- dim(G)[1]
     qrG <- qr(G, tol = tol_qr)
@@ -129,7 +130,7 @@ mc_cevo <- function(nit, G, mu = rep.int(0, nvar),
         Sigma_ <- tcrossprod(proj_RG, tcrossprod(proj_RG, Sigma))
         beta_in_RG <- qfratio:::iseq(mu, mu_) && qfratio:::iseq(Sigma, Sigma_)
         if (beta_in_RG) {
-            Gi <- MASS::ginv(G)
+            Gi <- MASS::ginv(G, tol = tol_ginv)
             return(qfratio::rqfr(nit = nit, A = diag(nvar), B = Gi,
                                  p = 1, q = 1, mu = mu, Sigma = Sigma, ...))
         } else {
@@ -180,7 +181,8 @@ mc_flex <- function(nit, G, ...) {
 #' @rdname mc_evol
 #' @export
 mc_auto <- function(nit, G, mu = rep.int(0, nvar),
-                    Sigma = diag(nvar), tol_qr = 1e-7, ...) {
+                    Sigma = diag(nvar), tol = sqrt(.Machine$double.eps),
+                     tol_qr = tol, tol_ginv = tol, ...) {
     stopifnot("G should be symmetric" = isSymmetric(G))
     nvar <- dim(G)[1]
     qrG <- qr(G, tol = tol_qr)
@@ -190,7 +192,7 @@ mc_auto <- function(nit, G, mu = rep.int(0, nvar),
         Sigma_ <- tcrossprod(proj_RG, tcrossprod(proj_RG, Sigma))
         beta_in_RG <- qfratio:::iseq(mu, mu_) && qfratio:::iseq(Sigma, Sigma_)
         if (beta_in_RG) {
-            Gi <- MASS::ginv(G)
+            Gi <- MASS::ginv(G, tol = tol_ginv)
             return(qfratio::rqfmr(nit = nit, A = diag(nvar), B = G, D = Gi,
                                   p = 2, q = 1, r = 1,
                                   mu = mu, Sigma = Sigma, ...))

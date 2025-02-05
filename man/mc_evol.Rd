@@ -14,13 +14,31 @@
 \usage{
 mc_evol(nit, G, ...)
 
-mc_cevo(nit, G, mu = rep.int(0, nvar), Sigma = diag(nvar), tol_qr = 1e-07, ...)
+mc_cevo(
+  nit,
+  G,
+  mu = rep.int(0, nvar),
+  Sigma = diag(nvar),
+  tol = sqrt(.Machine$double.eps),
+  tol_qr = tol,
+  tol_ginv = tol,
+  ...
+)
 
 mc_resp(nit, G, ...)
 
 mc_flex(nit, G, ...)
 
-mc_auto(nit, G, mu = rep.int(0, nvar), Sigma = diag(nvar), tol_qr = 1e-07, ...)
+mc_auto(
+  nit,
+  G,
+  mu = rep.int(0, nvar),
+  Sigma = diag(nvar),
+  tol = sqrt(.Machine$double.eps),
+  tol_qr = tol,
+  tol_ginv = tol,
+  ...
+)
 
 mc_inte(nit, G, ...)
 
@@ -45,7 +63,11 @@ of selection gradients.}
 default zero vector and identity matrix.  Passed to
 \code{qfratio::rqfr()} or \code{qfratio::rqfmr()}.}
 
-\item{tol_qr}{Tolerance passed to \code{qr()} to determine singularity of \code{G}}
+\item{tol, tol_qr, tol_ginv}{Tolerance to determine singularity of \code{G}.  By default, \code{tol}
+is copied into \code{tol_qr} and \code{tol_ginv}, which in turn are
+passed to \code{\link[base]{qr}()} and \code{\link[MASS]{ginv}()},
+respectively.  These can be specified separately if desired
+(mainly for debugging purposes).}
 }
 \value{
 Numeric vector of length \code{nit}
