@@ -2,7 +2,7 @@ Package: avrevol
 Type: Package
 Title: Average Evolvability Measures
 Version: 0.0.0.9012
-Date: 2025-02-05
+Date: 2026-01-14
 Authors@R: c(person("Junya", "Watanabe", email = "Junya.Watanabe@uab.cat",
              role = c("aut", "cre", "cph"),
              comment = c(ORCID = "0000-0002-9810-5286")))
@@ -19,4 +19,4 @@ BugReports: https://github.com/watanabe-j/avrevol/issues
 Imports: qfratio, MASS
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
