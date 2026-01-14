@@ -5,10 +5,10 @@
 #' delta method approximations for average evolvability measures.
 #'
 #' The notation \eqn{\mathrm{Var}}{Var} in Hansen and Houle's (2008, 2009)
-#' seems to represent average sum of squares from the average (divided by
-#' \eqn{k}, the number of variables) and not the ordinary unbiased estimator
-#' of variance for infinite populations (divided by \eqn{k - 1}).  The
-#' package \code{evolvability} v 2.0.0 incorrectly uses the latter divisor.
+#' seems to represent average sum of squares from the average, with the divisor
+#' \eqn{k} rather than \eqn{k - 1}, i.e.,
+#' \eqn{\sum_{i=1}^{k} (x_i - \bar{x})^2 / k}.  The present functions use
+#' this expression, as per the package \code{evolvability} v >=2.0.1.
 #'
 #' Evolvability measures not treated in Hansen and Houle (2008) (flexibility and
 #' response correlation) have not been implemented (although this should be
